@@ -1,58 +1,64 @@
-📓 Aperture Notes
+# 📓 Aperture Notes
 
-📢 Overview
+### 📢 Overview
 
 Aperture Notes is an interactive notepad designed to transform traditional note-taking into a more engaging and effective learning experience. With Aperture Notes, users can write notes, embed videos, and add images to better understand topics and overcome the monotony of studying. This innovative approach makes learning more dynamic, personalized, and efficient.
 
-✨ Features
+## ✨ Features
 
-📝 Rich Text Editing: Write and format notes with a user-friendly text editor.
-🎥 Media Integration: Add videos and images to enhance understanding.
-🎨 User-Friendly Interface: Clean and intuitive design for effortless navigation.
-📂 Organized Note Management: Categorize and structure notes for better accessibility.
+- 📝 Rich Text Editing: Write and format notes with a user-friendly text editor.
+- 🎥 Media Integration: Add videos and images to enhance understanding.
+- 🎨 User-Friendly Interface: Clean and intuitive design for effortless navigation.
+- 📂 Organized Note Management: Categorize and structure notes for better accessibility.
 
-🛠 Technology Stack
+## 🛠 Technology Stack
 
-💻 Programming Language: C++
-🎮 Graphics Library: Raylib
-📥 Installation
+- 💻 Programming Language: C++
+- 🎮 Graphics Library: Raylib
 
-🔧 Prerequisites
+## 📌 Build
 
-Ensure you have C++ installed along with a compiler (GCC, Clang, or MSVC).
+Ensure you have C++ installed along with a compiler (GCC, Clang or MSVC). Then follow the steps below.
 
-Install Raylib following the official documentation.
+#### 📂 Clone the repository:
 
-📌 Steps
+```
+git clone https://github.com/codingburgas/sprint-eschool-aperture.git
+```
 
-📂 Clone the repository:
+#### 📁 Navigate to the build directory:
 
-`git clone https://github.com/yourusername/aperture-notes.git`
+```
+cd sprint-eschool-aperture\build
+```
 
+#### ⚙️ Run `premake5.exe` to pull Raylib and add the build files:
 
-📁 Navigate to the project directory:
+```
+premake5.exe vs2022
+```
 
-`cd aperture-notes`
+If you want to view other platforms, run:
+```
+premake5.exe --help
+```
 
-🚀 Usage
+#### 🔨 Finally, build the project with the platform you chose.
 
-📖 Open the application and start creating a new note.
-🖊 Use the text editor to write down key points.
-🎬 Embed relevant videos and images to enhance your notes.
-📚 Save and categorize your notes for easy access later.
-🤝 Contributing
+For Visual Studio open the new `sprint-eschool-aperture.sln` file in the root folder and run it with F5.
 
-We welcome contributions! If you want to enhance Aperture Notes, feel free to fork the repository and submit a pull request.
+## 🚀 Usage
 
-📜 License
+- 📖 Open the application and start creating a new note.
+- 🖊 Use the text editor to write down key points.
+- 🎬 Embed relevant videos and images to enhance your notes.
+- 📚 Save and categorize your notes for easy access later.
 
-This project is licensed under the MIT License.
-
-📧 Contact
+## 📧 Contact
 
 For any inquiries or feedback, feel free to reach out to us at:
 
-+ PADimitrov23@codingburgas.bg – Scrum Trainer
-+ MSDimitrov23@codingburgas.bg – Back-end Developer
-+ KAGilichev23@codingburgas.bg – Front-end Developer
-+ HNStanchev23@codingburgas.bg – Designer
+- PADimitrov23@codingburgas.bg – Scrum Trainer
+- MSDimitrov23@codingburgas.bg – Back-end Developer
+- KAGilichev23@codingburgas.bg – Front-end Developer
+- HNStanchev23@codingburgas.bg – Designer
