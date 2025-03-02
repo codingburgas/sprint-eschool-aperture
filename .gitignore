@@ -396,5 +396,8 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
+*.sln
 raylib-master
+build/build_files
+build/external
 Makefile
