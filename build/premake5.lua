@@ -97,10 +97,6 @@ baseName = path.getbasename(path.getdirectory(os.getcwd()));
     workspaceName = baseName
 --end
 
-if (os.isdir('build_files') == false) then
-    os.mkdir('build_files')
-end
-
 if (os.isdir('external') == false) then
     os.mkdir('external')
 end
@@ -139,7 +135,7 @@ if (downloadRaylib) then
 
     project (workspaceName)
         kind "ConsoleApp"
-        location "build_files/"
+        location "../src/"
         targetdir "../bin/%{cfg.buildcfg}"
 
         filter {"system:windows", "configurations:Release or Release_RGFW", "action:gmake*"}
@@ -202,7 +198,7 @@ if (downloadRaylib) then
     
         platform_defines()
 
-        location "build_files/"
+        location "../src/"
 
         language "C"
         targetdir "../bin/%{cfg.buildcfg}"
