@@ -35,7 +35,12 @@ function check_raylib()
         zip.extract("raylib-master.zip", os.getcwd())
         os.remove("raylib-master.zip")
     end
-    os.chdir("../")
+    os.chdir("raylib-master/src")
+    local result_str, response_code = http.download("https://raw.githubusercontent.com/raysan5/raygui/refs/heads/master/src/raygui.h", "raygui.h", {
+        progress = download_progress,
+        headers = { "From: Premake", "Referer: Premake" }
+    })
+    os.chdir("../../../")
 end
 
 function build_externals()
