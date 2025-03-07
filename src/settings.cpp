@@ -1,6 +1,4 @@
-#include <settings_menu.hpp>
-
-#include <raylib.h>
+#include <settings.hpp>
 
 #include <utilities.hpp>
 

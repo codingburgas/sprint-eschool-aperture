@@ -1,4 +1,4 @@
-#include <edit_lessons_menu.hpp>
+#include <edit_lessons.hpp>
 
 #include <raylib.h>
 

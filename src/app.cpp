@@ -5,11 +5,11 @@
 #include <raygui.h>
 
 #include <about_us.hpp>
+#include <edit_lessons.hpp>
+#include <menu.hpp>
+#include <select_lessons.hpp>
+#include <settings.hpp>
 #include <utilities.hpp>
-#include <main_menu.hpp>
-#include <settings_menu.hpp>
-#include <edit_lessons_menu.hpp>
-#include <select_lessons_menu.hpp>
 
 
 App::App(Vector2 setScreen, std::string setName)
