@@ -23,7 +23,7 @@ App::~App() {}
 
 void App::Run()
 {
-	while (gameState != NIL)
+	while (gameState != NIL && !WindowShouldClose())
 	{
 		switch (gameState)
 		{
