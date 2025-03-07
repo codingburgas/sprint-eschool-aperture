@@ -1,19 +1,11 @@
 #include <raylib.h>
+#include <app.hpp>
+#include <utilities.hpp>
 
 int main()
 {
-	InitWindow(1280, 800, "Aperture Pad");
+	App* app = new App({ 1440, 800 }, "Aperture Notepad");
+	app->Run();
 
-	SetTargetFPS(60);
-	
-	while (!WindowShouldClose())
-	{
-		BeginDrawing();
-
-			ClearBackground(BLACK);
-		
-		EndDrawing();
-	}
-
-	CloseWindow();
+	delete app;
 }
