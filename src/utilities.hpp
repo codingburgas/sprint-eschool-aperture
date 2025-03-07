@@ -1,9 +1,5 @@
 #pragma once
 
-#include <string>
-
-#include <raylib.h>
-
 enum GameState
 {
 	NIL = 0,
@@ -12,5 +8,4 @@ enum GameState
 	EDIT_LESSONS,
 	ABOUT_US,
 	SETTINGS,
-
 };
