@@ -2,4 +2,4 @@
 
 #include <utilities.hpp>
 
-GameState edit_lessons();
+GameState editLessons();

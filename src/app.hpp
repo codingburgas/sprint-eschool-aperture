@@ -1,7 +1,8 @@
 #pragma once
 
-#include <utilities.hpp>
 #include <raylib.h>
+
+#include <utilities.hpp>
 #include <string>
 
 class App

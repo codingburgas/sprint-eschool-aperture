@@ -1,9 +1,9 @@
-#include <app.hpp>
-#include <utilities.hpp>
 #include <raylib.h>
+
+#include <utilities.hpp>
 #include <select_lessons_menu.hpp>
 
-GameState select_lessons()
+GameState selectLessons()
 {
 
 }

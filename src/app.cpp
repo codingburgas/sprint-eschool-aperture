@@ -1,8 +1,12 @@
 #include <app.hpp>
-#include <utilities.hpp>
+
 #include <raylib.h>
-#include <main_menu.hpp>
+#define RAYGUI_IMPLEMENTATION
+#include <raygui.h>
+
 #include <about_us.hpp>
+#include <utilities.hpp>
+#include <main_menu.hpp>
 #include <settings_menu.hpp>
 #include <edit_lessons_menu.hpp>
 #include <select_lessons_menu.hpp>
@@ -28,10 +32,11 @@ void App::Run()
 			gameState = menu();
 			break;
 		case LESSONS_SELECT:
-			gameState = select_lessons();
+			gameState = selectLessons();
 			break;
 		case EDIT_LESSONS:
-			gameState = edit_lessons();
+			gameState = editLessons();
+			break;
 		case ABOUT_US:
 			gameState = about();
 			break;

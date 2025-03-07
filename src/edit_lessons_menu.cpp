@@ -1,9 +1,9 @@
-#include <app.hpp>
-#include <utilities.hpp>
 #include <raylib.h>
+
+#include <utilities.hpp>
 #include <edit_lessons_menu.hpp>
 
-GameState edit_lessons()
+GameState editLessons()
 {
 
 }

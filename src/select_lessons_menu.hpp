@@ -2,4 +2,4 @@
 
 #include <utilities.hpp>
 
-GameState select_lessons();
+GameState selectLessons();
