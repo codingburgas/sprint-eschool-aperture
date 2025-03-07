@@ -7,5 +7,5 @@
 
 GameState settings()
 {
-
+	return SETTINGS;
 }

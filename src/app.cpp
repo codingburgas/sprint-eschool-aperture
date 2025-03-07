@@ -31,7 +31,7 @@ void App::Run()
 		case MENU:
 			gameState = menu();
 			break;
-		case LESSONS_SELECT:
+		case SELECT_LESSONS:
 			gameState = selectLessons();
 			break;
 		case EDIT_LESSONS:

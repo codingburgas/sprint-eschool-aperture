@@ -6,5 +6,5 @@
 
 GameState editLessons()
 {
-
+	return EDIT_LESSONS;
 }

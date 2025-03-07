@@ -7,5 +7,5 @@
 
 GameState selectLessons()
 {
-
+	return SELECT_LESSONS;
 }

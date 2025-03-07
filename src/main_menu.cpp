@@ -7,5 +7,5 @@
 
 GameState menu()
 {
-
+	return MENU;
 }

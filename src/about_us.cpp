@@ -7,5 +7,5 @@
 
 GameState about()
 {
-
+	return ABOUT_US;
 }
