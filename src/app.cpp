@@ -17,8 +17,9 @@ App::App(Vector2 screenDimensions, char windowName[])
 	InitWindow((int)screen.x, (int)screen.y, windowName);
 	SetTargetFPS(60);
 	InitAudioDevice();
-
+	GuiLoadStyle("styles/sourceaurelius.rgs");
 }
+
 App::~App() {}
 
 void App::Run()
