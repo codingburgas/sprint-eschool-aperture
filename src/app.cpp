@@ -11,11 +11,10 @@
 #include <settings.hpp>
 #include <utilities.hpp>
 
-
-App::App(Vector2 setScreen, std::string setName)
-	: screen(setScreen), name(setName), gameState(MENU)
+App::App(Vector2 screenDimensions, char windowName[])
+	: screen(screenDimensions), gameState(MENU)
 {
-	InitWindow((int)screen.x, (int)screen.y, name.c_str());
+	InitWindow((int)screen.x, (int)screen.y, windowName);
 	SetTargetFPS(60);
 	InitAudioDevice();
 
