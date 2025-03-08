@@ -5,13 +5,12 @@
 
 #include <utilities.hpp>
 
-
 GameState menu()
 {
 	int activeOption;
-	Font titleFont = LoadFontEx("styles/Gefika.otf", 500, nullptr, 0);
+	Font titleFont = LoadFontEx("styles/Gefika.otf", 230, NULL, 0);
 	Color apertureBlue = { 0, 118, 163, 255 };
-    
+
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
@@ -21,7 +20,7 @@ GameState menu()
 			DrawTextEx(titleFont, "Aperture\nNotepad", Vector2{100, 60}, 110, 6, apertureBlue);
 
 			// Menu options
-			GuiListView(Rectangle{ 100, 340, 430, 300 }, "Notes;Settings;Quit", nullptr, &activeOption); // Pass null to scroll index since we don't use it
+			GuiListView(Rectangle{ 100, 340, 430, 300 }, "Notes;Settings;Quit", NULL, &activeOption); // Pass NULL to scroll index since we don't use it
 
 		EndDrawing();
 
