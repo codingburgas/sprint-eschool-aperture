@@ -1,3 +1,4 @@
+![LOGO](styles/images/logoCRT.png)
 # 📓 Aperture Notes
 
 ### 📢 Overview
