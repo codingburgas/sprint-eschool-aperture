@@ -18,10 +18,13 @@ App::App(Vector2 screenDimensions, char windowName[])
 	SetTargetFPS(60);
 
 	InitAudioDevice();
+
 	GuiLoadStyle("styles/sourceaurelius.rgs");
+	mainFont = LoadFontEx("styles/Ubuntu-Bold.ttf", 100, NULL, 0); // Codepoints are NULL to use default char set
+	GuiSetFont(mainFont);
 }
 
-App::~App() 
+App::~App()
 {
 	UnloadFont(mainFont);
 }
