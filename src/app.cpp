@@ -16,13 +16,15 @@ App::App(Vector2 screenDimensions, char windowName[])
 {
 	InitWindow((int)screen.x, (int)screen.y, windowName);
 	SetTargetFPS(60);
+
 	InitAudioDevice();
 	GuiLoadStyle("styles/sourceaurelius.rgs");
-	Font mainFont = LoadFontEx("styles/Ubuntu-Bold.ttf", 100, nullptr, 0);
-	GuiSetFont(mainFont);
 }
 
-App::~App() {}
+App::~App() 
+{
+	UnloadFont(mainFont);
+}
 
 void App::Run()
 {

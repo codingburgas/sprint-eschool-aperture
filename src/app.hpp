@@ -15,4 +15,5 @@ public:
 private:
 	GameState gameState;
 	Vector2 screen;
+    Font mainFont;
 };

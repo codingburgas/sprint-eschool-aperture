@@ -31,5 +31,6 @@ GameState menu()
 		}
 	}
 
+	UnloadFont(titleFont);
 	return QUIT;
 }
