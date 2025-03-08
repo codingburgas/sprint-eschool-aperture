@@ -11,6 +11,8 @@ GameState menu()
 	Font titleFont = LoadFontEx("styles/Gefika.otf", 230, NULL, 0);
 	Color apertureBlue = { 0, 118, 163, 255 };
 
+	GuiSetStyle(LISTVIEW, LIST_ITEMS_HEIGHT, 60);
+
 	while (!WindowShouldClose())
 	{
 		BeginDrawing();
