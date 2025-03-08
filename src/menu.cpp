@@ -22,7 +22,7 @@ GameState menu()
 			DrawTextEx(titleFont, "Aperture\nNotepad", Vector2{100, 60}, 110, 6, apertureBlue);
 
 			// Menu options
-			GuiListView(Rectangle{ 100, 340, 430, 300 }, "Notes;Settings;Quit", NULL, &activeOption); // Pass NULL to scroll index since we don't use it
+			GuiListView(Rectangle{ 100, 340, 430, 300 }, "Notes;Settings;About us;Quit", NULL, &activeOption); // Pass NULL to scroll index since we don't use it
 
 		EndDrawing();
 
@@ -30,7 +30,8 @@ GameState menu()
 		{
 		case 0: return SELECT_LESSONS;
 		case 1: return SETTINGS;
-		case 2: return QUIT;
+		case 2: return ABOUT_US;
+		case 3: return QUIT;
 		}
 	}
 
