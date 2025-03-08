@@ -2,7 +2,7 @@
 
 enum GameState
 {
-	NIL = 0,
+	QUIT = 0,
 	MENU,
 	SELECT_LESSONS,
 	EDIT_LESSONS,
