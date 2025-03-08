@@ -5,7 +5,7 @@
 #include <utilities.hpp>
 
 
-GameState about()
+GameState aboutUs()
 {
 	return ABOUT_US;
 }

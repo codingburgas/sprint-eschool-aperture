@@ -45,7 +45,7 @@ void App::Run()
 			gameState = editLessons();
 			break;
 		case ABOUT_US:
-			gameState = about();
+			gameState = aboutUs();
 			break;
 		case SETTINGS:
 			gameState = settings();

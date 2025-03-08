@@ -2,4 +2,4 @@
 
 #include <utilities.hpp>
 
-GameState about();
+GameState aboutUs();
