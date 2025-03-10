@@ -12,7 +12,7 @@ local function cloneExternalLibraries()
 	os.execute("bootstrap-vcpkg.bat")
 
 	-- Install each external library
-	table.foreachi(libraries, function(library)
+	table.foreachi(serverLibraries, function(library)
 		os.execute("vcpkg install " .. library)
 	end)
 
