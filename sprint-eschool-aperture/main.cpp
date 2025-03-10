@@ -16,9 +16,15 @@ int main()
 		return res;
 	});
 
-	CROW_ROUTE(app, "/about.html")([]() {
+	CROW_ROUTE(app, "/html/about.html")([]() {
 		crow::response res;
 		res.set_static_file_info("static/html/about.html");
+		return res;
+	});
+
+	CROW_ROUTE(app, "/html/login.html")([]() {
+		crow::response res;
+		res.set_static_file_info("static/html/login.html");
 		return res;
 	});
 
@@ -26,13 +32,13 @@ int main()
 		crow::response res;
 		res.set_static_file_info("static/media/fonts/Gefika.otf");
 		return res;
-		});
+	});
 
 	CROW_ROUTE(app, "/media/videos/backgroundVideo.mp4")([]() {
 		crow::response res;
 		res.set_static_file_info("static/media/videos/backgroundVideo.mp4"); 
 		return res;
-		});
+	});
 
 	app.multithreaded().run();
 }
