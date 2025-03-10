@@ -1,19 +1,6 @@
 @font-face {
     font-family: 'Gefika';
-    src: url('../media/fonts/Gefika.otf') format('OpenType');
-}
-
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Gefika', sans-serif;
-    color: #ffffff;
-    overflow: hidden;
-    display: flex;
-    justify-content: center; /* Center content horizontally */
-    align-items: center; /* Center content vertically */
-    height: 100vh; /* Full viewport height */
-    position: relative; /* Ensure video is behind */
+    src: url('/media/fonts/Gefika.otf') format('opentype');
 }
 
 /* Video Background */
@@ -24,7 +11,7 @@ video.background-video {
     width: 100%;
     height: 100%;
     object-fit: cover; /* Make the video cover the entire screen */
-    filter: blur(6px); /* Reduced blur effect */
+    filter: blur(6px);
     z-index: -2; /* Place the video behind the overlay */
 }
 
@@ -40,62 +27,66 @@ body::before {
     z-index: -1; /* Ensure the overlay is above the video but behind the content */
 }
 
-.container {
+body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gefika', sans-serif;
+    color: #FFF;
+    overflow: hidden;
+    height: 100vh; /* Full viewport height */
     display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-    position: relative;
-    z-index: 1; /* Ensure the content is above the darkened background */
+    align-items: center; /* Center menu vertically */
+    justify-content: center; /* Center menu horizontally */
 }
 
-.title {
+main {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center buttons horizontally */
+}
+
+h1 {
     font-size: 500%;
     font-weight: bold;
     text-transform: uppercase;
+    text-align: center;
     letter-spacing: 3px;
-    color: #0076A3; /* Aperture Orange */
+    color: #0076A3;
     margin: 70px;
 }
 
-.menu {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
-}
-
-.button {
-    background-color: #0076A3; /* Black background for terminal look */
-    color: #D1D3D4; /* Classic green text on black (like old terminals) */
-    font-family: 'Gefika', sans-serif; /* Monospace font for ASCII console */
-    font-size: 150%; /* Suitable size for console-style text */
-    padding: 10px 20px; /* Padding for button size */
-    border: 2px solid #D1D3D4; /* Green border to match text */
-    border-radius: 3px; /* Slightly rounded corners */
+main > a {
+    background-color: #0076A3;
+    color: #D1D3D4;
+    font-family: 'Gefika', sans-serif;
+    font-size: 150%;
+    padding: 10px 20px;
+    margin-bottom: 20px;
+    border: 2px solid #D1D3D4;
+    border-radius: 3px;
     text-align: center;
     text-transform: uppercase;
-    cursor: pointer;
+    text-decoration: none;
     box-shadow: 0 2px 0 #4A4A4A;
     transition: all 0.2s ease;
     white-space: nowrap;
     width: 200px;
 }
 
-.button:hover {
-    background-color: #F86C3D; /* Slightly lighter green when hovered */
-    color: #000; /* Change text color on hover */
+main > a:hover {
+    background-color: #F86C3D;
+    color: #000;
     box-shadow: 0 1px 0  #1C1C1C;
     transform: translateY(2px);
 }
 
-.button:active {
-    background-color: #FFFFFF ;
-    box-shadow: 0 1px 0 #FFFFFF ;
+main > a:active {
+    background-color: #FFF ;
+    box-shadow: 0 1px 0 #000 ;
     transform: translateY(4px);
 }
 
-.footer {
+footer {
     position: absolute;
     bottom: 20px;
     font-size: 0.9rem;
