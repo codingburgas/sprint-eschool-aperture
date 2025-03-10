@@ -397,6 +397,6 @@ FodyWeavers.xsd
 # JetBrains Rider
 *.sln.iml
 *.sln
-*.vcxproj*
-raylib-master
+*.vcx*
+vcpkg
 Makefile
