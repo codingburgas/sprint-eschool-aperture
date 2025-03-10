@@ -16,13 +16,13 @@ int main()
 		return res;
 	});
 
-	CROW_ROUTE(app, "/html/about.html")([]() {
+	CROW_ROUTE(app, "/about")([]() {
 		crow::response res;
 		res.set_static_file_info("static/html/about.html");
 		return res;
 	});
 
-	CROW_ROUTE(app, "/html/login.html")([]() {
+	CROW_ROUTE(app, "/login")([]() {
 		crow::response res;
 		res.set_static_file_info("static/html/login.html");
 		return res;
