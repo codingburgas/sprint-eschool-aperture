@@ -1,4 +1,4 @@
-![LOGO](styles/images/logoCRT.png)
+![Logo](sprint-eschool-aperture/static/media/images/logoCRT.png)
 # 📓 Aperture Notes
 
 ### 📢 Overview
@@ -17,23 +17,23 @@ Aperture Notes is an interactive notepad designed to transform traditional note-
 - 💻 Programming Language: C++
 - 🎮 Graphics Library: Raylib
 
-## 📌 Build
+## 📌 Build locally
 
 Ensure you have C++ installed along with a compiler (GCC, Clang or MSVC). Then follow the steps below.
 
-#### 📂 Clone the repository:
+#### 📁 Clone the repository:
 
 ```
 git clone https://github.com/codingburgas/sprint-eschool-aperture.git
 ```
 
-#### 📁 Navigate to the build directory:
+#### 📂 Navigate to the new directory:
 
 ```
-cd sprint-eschool-aperture\build
+cd sprint-eschool-aperture
 ```
 
-#### ⚙️ Run `premake5.exe` to pull Raylib and add the build files:
+#### ⚙️ Run `premake5.exe` to pull the external libraries:
 
 ```
 premake5.exe vs2022
@@ -44,9 +44,11 @@ If you want to view other platforms, run:
 premake5.exe --help
 ```
 
-#### 🔨 Finally, build the project with the platform you chose.
+#### 🔨 Build the project with the platform you chose.
 
-For Visual Studio open the new `sprint-eschool-aperture.sln` file in the root folder and run it with F5.
+For Visual Studio open the new `sprint-eschool-aperture.sln` file and run it with F5.
+
+#### 🌐 Finally, you can view the website at [localhost](http://localhost).
 
 ## 🚀 Usage
 
