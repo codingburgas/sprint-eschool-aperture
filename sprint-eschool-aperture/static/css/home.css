@@ -4,15 +4,16 @@
 }
 
 /* Video Background */
-video.background-video {
-    position: absolute;
+video#background {
+    position: relative;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
+    width: 100%; /* Set width and height to respond to window resizing */
+    height: 100vh;
     object-fit: cover; /* Make the video cover the entire screen */
     filter: blur(6px);
     z-index: -2; /* Place the video behind the overlay */
+    float: left;
 }
 
 /* Darken the video background using a semi-transparent overlay */
@@ -32,14 +33,16 @@ body {
     padding: 0;
     font-family: 'Gefika', sans-serif;
     color: #FFF;
-    overflow: hidden;
+    background-color: #1C1C1C;
     height: 100vh; /* Full viewport height */
-    display: flex;
-    align-items: center; /* Center menu vertically */
+    /*align-items: center;  Center menu vertically 
     justify-content: center; /* Center menu horizontally */
 }
 
-main {
+section#menu {
+    /*margin: 0 auto;*/
+    position: relative;
+    left: -50vw;
     display: flex;
     flex-direction: column;
     align-items: center; /* Center buttons horizontally */
@@ -55,7 +58,7 @@ h1 {
     margin: 70px;
 }
 
-main > a {
+section#menu > a {
     background-color: #0076A3;
     color: #D1D3D4;
     font-family: 'Gefika', sans-serif;
@@ -73,17 +76,21 @@ main > a {
     width: 200px;
 }
 
-main > a:hover {
+section#menu > a:hover {
     background-color: #F86C3D;
     color: #000;
     box-shadow: 0 1px 0  #1C1C1C;
     transform: translateY(2px);
 }
 
-main > a:active {
+section#menu > a:active {
     background-color: #FFF ;
     box-shadow: 0 1px 0 #000 ;
     transform: translateY(4px);
+}
+
+section#about {
+    clear: left;
 }
 
 footer {
