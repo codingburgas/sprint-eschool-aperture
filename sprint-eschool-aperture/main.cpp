@@ -40,5 +40,33 @@ int main()
 		return res;
 	});
 
+	CROW_ROUTE(app, "/media/images/Peter.png")([]() {
+		crow::response res;
+		res.set_static_file_info("static/media/images/Peter.png");
+		return res;
+		});
+
+
+	CROW_ROUTE(app, "/media/images/Mark.jpg")([]() {
+		crow::response res;
+		res.set_static_file_info("static/media/images/Mark.jpg");
+		return res;
+		});
+
+
+	CROW_ROUTE(app, "/media/images/Kiril.jpg")([]() {
+		crow::response res;
+		res.set_static_file_info("static/media/images/Kiril.jpg");
+		return res;
+		});
+
+
+	CROW_ROUTE(app, "/media/images/Hristian.jpg")([]() {
+		crow::response res;
+		res.set_static_file_info("static/media/images/Hristian.jpg");
+		return res;
+		});
+
+
 	app.multithreaded().run();
 }
