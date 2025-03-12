@@ -29,18 +29,12 @@ workspace "aperture-notepad"
 	language "C++"
 	cppdialect "C++23"
 
-project "vcpkg"
-	kind "SharedItems"
-
-	cloneExternalLibraries()
-
-	files { "vcpkg/packages/*/include/*.h", "vcpkg/packages/*/include/*.hpp" }
-
 project "aperture-notepad"
 	kind "ConsoleApp"
 
 	location "sprint-eschool-aperture"
 
 	files "sprint-eschool-aperture/*"
+
+	cloneExternalLibraries()
 	includedirs "vcpkg/packages/*/include"
-	links "vcpkg"
