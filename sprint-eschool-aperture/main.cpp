@@ -1,8 +1,10 @@
 #include <crow.h>
+#include <sqlite3.h>
 
 int main()
 {
 	crow::SimpleApp app;
+	sqlite3* database;
 
 	CROW_ROUTE(app, "/")([]() {
 		crow::response res;

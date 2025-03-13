@@ -1,6 +1,6 @@
 -- ADD EXTERNAL LIBRARIES HERE:
 local serverLibraries = {
-	"crow",
+	"crow", "sqlite3"
 }
 
 -- User-configurable code ends here.
