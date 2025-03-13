@@ -3,109 +3,106 @@
     src: url('/media/fonts/Gefika.otf') format('opentype');
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Gefika', sans-serif;
+input {
+    caret-color: #0076A3;
+  }
+  
+  body {
+    background: #3a7bd5;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #3a6073, #3a7bd5);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #3a6073, #3a7bd5); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    font-size: 105%;
     color: #0076A3;
-    background-color: #FFF;
+    font-weight: bold;
+    margin: 0;
+    width: 100vw;
     height: 100vh;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    place-items: center;
+    overflow: hidden;
+    font-family: 'Gefika', sans-serif;
+  }
+  
+  .container {
+    position: fixed;
+    width: 350px;
+    height: 500px;
+    border-radius: 20px;
+    padding: 40px;
+    box-sizing: border-box;
+    background: #ecf0f3;
 }
-
-/* Video Background */
-video#background {
-    position: relative;
-    top: 0;
-    left: 0;
+  
+  .brand-title {
+    margin-top: 10px;
+    font-weight: 900;
+    font-size: 1.8rem;
+    color: #0076A3;
+    letter-spacing: 1px;
+  }
+  
+  .inputs {
+    text-align: left;
+    margin-top: 30px;
+  }
+  
+  label, input, button {
+    display: block;
     width: 100%;
-    height: 100vh;
-    object-fit: cover;
-    filter: blur(6px);
-    z-index: -2;
+    padding: 0;
+    border: none;
+    outline: none;
+    box-sizing: border-box;
+  }
+  
+  label {
+    margin-bottom: 4px;
+  }
+  
+  label:nth-of-type(2) {
+    margin-top: 12px;
+  }
+  
+  input::placeholder {
+    color: #0076A3;
+  }
+  
+  input {
+    background: #ecf0f3;
+    padding: 10px;
+    padding-left: 20px;
+    height: 50px;
+    font-size: 14px;
+    border-radius: 50px;
+    border: 1px solid #adb0b3; /* Add sleeker border to the input fields */
 }
-
-/* Darken the video background */
-body::before {
-    content: "";
+  
+  button {
+    color: white;
+    margin-top: 20px;
+    background-color: #0076A3;
+    height: 40px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-weight: 900;
+    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+    transition: 0.5s;
+  }
+  
+  button:hover {
+    background-color: #05a5e4;
+  }
+  
+  h1 {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.5);
-    z-index: -1;
-}
+  }
 
-/* Form Container */
-.form-container {
-    background-color: #ffffff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    position: relative;
-    z-index: 1;
-    padding: 30px;
-    border-radius: 10px;
-    width: 400px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
-h1 {
-    font-size: 2.5rem;
-    font-weight: bold;
-    text-align: center;
-    letter-spacing: 2px;
-    color: #0076A3;
-    margin-bottom: 20px;
-}
-
-input, textarea {
-    width: 100%;
-    padding: 12px 20px;
-    margin: 10px 0;
-    border: 2px solid #0076A3;
-    border-radius: 3px;
-    font-size: 1.2rem;
-    color: #0076A3;
-    background-color: #f4f4f4;
-    transition: all 0.3s ease;
-}
-
-input:focus, textarea:focus {
-    border-color: #F86C3D;
-    outline: none;
-    background-color: #fff;
-}
-
-button {
-    background-color: #0076A3;
-    color: #D1D3D4;
-    font-size: 1.2rem;
-    padding: 12px 20px;
-    border: 2px solid #D1D3D4;
-    border-radius: 3px;
-    width: 100%;
-    text-transform: uppercase;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    box-shadow: 0 2px 0 #4A4A4A;
-}
-
-button:hover {
-    background-color: #F86C3D;
-    color: #000;
-    box-shadow: 0 1px 0 #1C1C1C;
-    transform: translateY(2px);
-}
-
-button:active {
-    background-color: #FFF;
-    box-shadow: 0 1px 0 #000;
-    transform: translateY(4px);
-}
-
-footer {
+  footer {
     position: absolute;
     bottom: 20px;
     font-size: 0.9rem;

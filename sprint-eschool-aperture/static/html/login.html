@@ -9,19 +9,21 @@
 </head>
 <body>
 
-    <div class="form-container">
-        <h1>Login</h1>
-        <form action="/login" method="POST">
-            <input type="email" name="email" placeholder="Your Email" required>
-            <input type="text" name="password" placeholder="Your Password" required>
-            <button type="submit">Submit</button>
-            <a href = "../index.html"><button>Register</button></a>
-        </form>
-    </div>
+    <div class="container">
+        <div class="brand-title">Aperture Notepad</div>
+            <div class="inputs">
+                <form action="/login" method="POST">
+          <label>Email</label>
+          <input type="email" name="email" placeholder="Your Email" required>
+          <label>Password</label>
+          <input type="password" name="password" placeholder="***********" required>
+          <button type="submit">Login</button>
+          <button  type="submit">Register</button>
+                </form>
+            </div>
+      </div>
 
-    <video id="background" autoplay loop muted>
-        <source src="../media/videos/backgroundVideo.mp4">
-    </video>
+      
 
 
     <footer>© Aperture Notepad Enrichment Center - All Rights Reserved to Team Aperture</footer>
