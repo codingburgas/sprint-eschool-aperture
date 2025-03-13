@@ -27,7 +27,7 @@ int main()
 
 		if (request.method == "POST"_method)
 		{
-			return crow::response{ "Success!" };
+			return crow::response{ request.get_body_params().get("email") };
 		}
 		else
 		{
@@ -45,6 +45,7 @@ int main()
 	CROW_ROUTE(app, "/media/fonts/Gefika.otf")([]() {
 		crow::response res;
 		res.set_static_file_info("static/media/fonts/Gefika.otf");
+		res.set_header("Content-Type", "font/otf");
 		return res;
 	});
 
