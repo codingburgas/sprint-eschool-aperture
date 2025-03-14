@@ -19,8 +19,8 @@ local function cloneExternalLibraries()
 	end)
 
 	-- Copy dlls to exe's directory
-	table.foreachi(os.matchfiles("../packages/*/bin/*.dll"), function(dll)
-		prebuildcommands("{COPYFILE} %[" .. dll .. "] %[%{cfg.buildtarget.directory}/" .. path.getname(dll) .. "]")
+	table.foreachi(os.matchfiles("packages/*/bin/*.dll"), function(dll)
+		prebuildcommands("{COPYFILE} %[" .. path.getabsolute(dll) .. "] %[%{cfg.buildtarget.directory}/" .. path.getname(dll) .. "]")
 	end)
 
 	-- Return to root directory
