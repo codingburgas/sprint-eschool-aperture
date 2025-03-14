@@ -6,6 +6,8 @@ int main()
 	crow::SimpleApp app;
 	sqlite3* database;
 
+	sqlite3_open("database.db", &database);
+
 	CROW_ROUTE(app, "/")([]() {
 		crow::response res;
 		res.set_static_file_info("static/index.html");

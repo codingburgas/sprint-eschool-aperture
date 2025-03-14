@@ -1,6 +1,7 @@
 -- ADD EXTERNAL LIBRARIES HERE:
 local serverLibraries = {
-	"crow", "sqlite3"
+	"crow",
+	"sqlite3",
 }
 
 -- User-configurable code ends here.
@@ -14,6 +15,12 @@ local function cloneExternalLibraries()
 	-- Install each external library
 	table.foreachi(serverLibraries, function(library)
 		os.execute("vcpkg install " .. library)
+		if os.isfile("packages/" .. library .. "_x64-windows/lib/" .. library .. ".lib") then links(library) end
+	end)
+
+	-- Copy dlls to exe's directory
+	table.foreachi(os.matchfiles("../packages/*/bin/*.dll"), function(dll)
+		prebuildcommands("{COPYFILE} %[" .. dll .. "] %[%{cfg.buildtarget.directory}/" .. path.getname(dll) .. "]")
 	end)
 
 	-- Return to root directory
@@ -38,3 +45,4 @@ project "aperture-notepad"
 
 	cloneExternalLibraries()
 	includedirs "vcpkg/packages/*/include"
+	libdirs     "vcpkg/packages/*/lib"
