@@ -1,12 +1,15 @@
+#include "database.hpp"
+
 #include <crow.h>
 #include <sqlite3.h>
+
 
 int main()
 {
 	crow::SimpleApp app;
-	sqlite3* database;
 
-	sqlite3_open("database.db", &database);
+	Database database("database.db");
+
 
 	CROW_ROUTE(app, "/")([]() {
 		crow::response res;
@@ -26,12 +29,16 @@ int main()
 		return res;
 	});
 
-	CROW_ROUTE(app, "/login").methods("GET"_method, "POST"_method)([](crow::request request) {
+	//Register
+     
+	CROW_ROUTE(app, "/login").methods("GET"_method, "POST"_method)([&database](crow::request request) {
 		crow::response response;
 
 		if (request.method == "POST"_method)
 		{
-			return crow::response{ request.get_body_params().get("email") };
+
+			database.insertUser(request.get_body_params().get("email"), request.get_body_params().get("password"));
+
 		}
 		else
 		{
