@@ -4,7 +4,7 @@
 #include <string>
 
 #include <sqlite3.h>
-#include <bcrypt.h>
+#include <bcryptcpp.h>
 
 using namespace std;
 
