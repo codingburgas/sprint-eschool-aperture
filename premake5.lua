@@ -23,6 +23,12 @@ local function cloneExternalLibraries()
 		prebuildcommands("{COPYFILE} %[" .. path.getabsolute(dll) .. "] %[%{cfg.buildtarget.directory}/" .. path.getname(dll) .. "]")
 	end)
 
+	-- Add bcrypt (not from vcpkg)
+	http.download("https://github.com/hilch/Bcrypt.cpp/archive/refs/heads/master.zip", "packages/bcrypt.zip")
+	zip.extract("packages/bcrypt.zip", "packages")
+	os.remove("packages/bcrypt.zip")
+	includedirs "packages/Bcrypt.cpp-master/include"
+
 	-- Return to root directory
 	os.chdir("..")
 end
