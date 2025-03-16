@@ -12,5 +12,39 @@ header {
     color: white;
     text-align: center;
     padding: 20px 0;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+main {
+    width: 600px;
+    border: 3px solid darkblue;
+    border-radius: 9px;
+    padding: 15px;
+    margin-top: 15px;
+    margin-left: 15px;
+}
+
+#add {
+    background-color: darkblue;
+    color: white;
+    border: 3px solid gray;
+    width: 100px;
+    height: 50px;
+    font-size: 28px;
+    display: block;
+    margin: 15px auto;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+}
+
+li a {
+    display: block;
+    color: darkblue;
+    border: 2px solid gray;
+    padding: 12px 18px;
+    margin: 2px 0;
+    border-radius: 5px;
+    text-decoration: none;
 }
