@@ -67,3 +67,25 @@ li a:hover {
     background-color: darkblue;
     color: white;
 }
+
+.container {
+    display: flex;
+    margin-right: 20px;
+}
+
+.lessons {
+    width: 700px;
+}
+
+.lesson-window {
+    width: 45%;
+    margin-top: 20px;
+    margin-left: 50px;
+    background-color: white;
+    border: 3px solid darkblue;
+    border-radius: 16px;
+    padding: 20px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+    color: darkblue;
+    font-weight: bold;
+}
