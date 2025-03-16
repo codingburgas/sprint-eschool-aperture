@@ -19,22 +19,27 @@ Database::Database(const string& databaseName)
 
 bool Database::insertUser(const string& email, const string& password)
 {
-	string hashedPassword = bcrypt::generateHash(password);
-
 	try
 	{
 		database << "INSERT INTO users (email, password) VALUES (?, ?);"
 		         << email
-		         << hashedPassword;
+		         << bcrypt::generateHash(password);
 
 		cout << "User added.\n";
 
 		return true;
 	}
-	catch (const exception& e)
+	catch (const sqlite::sqlite_exception& exception)
 	{
-		cerr << e.what() << endl;
-		return false;
+		switch (exception.get_extended_code())
+		{
+		case SQLITE_CONSTRAINT_UNIQUE:
+			cerr << "Attempted to create user who already exists.\n";
+			return false;
+		default:
+			cerr << exception.errstr() << endl;
+			return false;
+		}
 	}
 }
 
@@ -50,9 +55,9 @@ bool Database::validateUser(const string& email, const string& password)
 
 		return bcrypt::validatePassword(password, storedHash);
 	}
-	catch (const exception& e)
+	catch (const sqlite::sqlite_exception& exception)
 	{
-		cerr << e.what() << endl;
+		cerr << exception.errstr() << endl;
 		return false;
 	}
 }
