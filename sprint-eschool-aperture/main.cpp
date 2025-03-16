@@ -1,15 +1,11 @@
-#include "database.hpp"
-
 #include <crow.h>
-#include <sqlite3.h>
 
+#include "database.hpp"
 
 int main()
 {
 	crow::SimpleApp app;
-
 	Database database("database.db");
-
 
 	CROW_ROUTE(app, "/")([]() {
 		crow::response res;
@@ -23,34 +19,37 @@ int main()
 		return res;
 	});
 
-	CROW_ROUTE(app, "/about")([]() {
-		crow::response res;
-		res.set_static_file_info("static/html/about.html");
-		return res;
+	CROW_ROUTE(app, "/login").methods("GET"_method)([]() {
+		crow::response response;
+		response.set_static_file_info("static/html/login.html");
+		return response;
 	});
 
-	//Register
-     
-	CROW_ROUTE(app, "/login").methods("GET"_method, "POST"_method)([&database](crow::request request) {
+	// Register
+	CROW_ROUTE(app, "/login").methods("POST"_method)([&database](crow::request request) {
 		crow::response response;
-
-		if (request.method == "POST"_method)
-		{
-
-			database.insertUser(request.get_body_params().get("email"), request.get_body_params().get("password"));
-
-		}
-		else
-		{
-			response.set_static_file_info("static/html/login.html");
-			return response;
-		}
+		database.insertUser(request.get_body_params().get("email"), request.get_body_params().get("password"));
+		response.code = 302;
+		response.set_header("Location", "/lessons");
+		return response;
 	});
 
 	CROW_ROUTE(app, "/css/login.css")([]() {
 		crow::response res;
 		res.set_static_file_info("static/css/login.css");
 		return res;
+	});
+
+	CROW_ROUTE(app, "/lessons")([]() {
+		crow::response response;
+		response.set_static_file_info("static/html/lessons.html");
+		return response;
+	});
+
+	CROW_ROUTE(app, "/css/lessons.css")([]() {
+		crow::response response;
+		response.set_static_file_info("static/css/lessons.css");
+		return response;
 	});
 
 	CROW_ROUTE(app, "/media/fonts/Gefika.otf")([]() {
