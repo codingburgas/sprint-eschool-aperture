@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aperture Notepad Login</title>
+    <link rel="stylesheet" href="/css/login.css">
+</head>
+<body>
+    <main>
+        <h1>Aperture Notepad</h1>
+        <form action="/login" method="POST">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" {{#emailError}}class="error" {{/emailError}}placeholder="example@email.com" required>
+            {{#emailExists}}<label for="email" class="error">Please use a different email</label>{{/emailExists}}
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="***********" required>
+            <input type="submit" value="Log in">
+            <input type="submit" value="Register" formaction="/register">
+        </form>
+    </main>
+
+    <footer>© Aperture Notepad Enrichment Center - All Rights Reserved to Team Aperture</footer>
+</body>
+</html>
