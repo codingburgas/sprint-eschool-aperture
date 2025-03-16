@@ -39,7 +39,10 @@ main {
     margin: 15px auto;
 }
 
-
+#add:hover {
+    background-color: powderblue;
+    color: darkblue;
+}
 
 ul {
     list-style: none;
@@ -60,3 +63,7 @@ li a {
     text-decoration: none;
 }
 
+li a:hover {
+    background-color: darkblue;
+    color: white;
+}
