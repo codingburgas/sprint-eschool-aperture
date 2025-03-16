@@ -1,25 +1,19 @@
 #pragma once
 
-#include <iostream>
-
 #include <string>
 
-#include <sqlite3.h>
-#include <bcrypt.h>
+#include <sqlite_modern_cpp.h>
 
 using namespace std;
 
-
 class Database
 {
- public:
+public:
 	Database(const string& databaseName);
-	~Database();
 
-	bool insertUser(const string& username, const  string& password);
-	bool validateUser(const std::string& email, const std::string& password);
+	bool insertUser(const string& email, const string& password);
+	bool validateUser(const string& email, const string& password);
 
 private:
-	sqlite3* database;
-
+	sqlite::database database;
 };
