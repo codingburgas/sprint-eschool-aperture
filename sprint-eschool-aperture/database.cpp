@@ -3,6 +3,7 @@
 #include <iostream>
 #include <string>
 
+#include <crow.h>
 #include <bcryptcpp.h>
 #include <sqlite_modern_cpp.h>
 
@@ -25,7 +26,7 @@ bool Database::insertUser(const string& email, const string& password)
 		         << email
 		         << bcrypt::generateHash(password);
 
-		cout << "User added.\n";
+		CROW_LOG_INFO << "User added successfuly";
 
 		return true;
 	}
@@ -34,10 +35,9 @@ bool Database::insertUser(const string& email, const string& password)
 		switch (exception.get_extended_code())
 		{
 		case SQLITE_CONSTRAINT_UNIQUE:
-			cerr << "Attempted to create user who already exists.\n";
 			return false;
 		default:
-			cerr << exception.errstr() << endl;
+			CROW_LOG_ERROR << exception.errstr();
 			return false;
 		}
 	}
@@ -57,7 +57,7 @@ bool Database::validateUser(const string& email, const string& password)
 	}
 	catch (const sqlite::sqlite_exception& exception)
 	{
-		cerr << exception.errstr() << endl;
+		CROW_LOG_ERROR << exception.errstr();
 		return false;
 	}
 }
