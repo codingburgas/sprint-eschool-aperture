@@ -98,10 +98,10 @@ input[type="submit"]:hover {
 	background-color: #05a5e4;
 }
 
-input#email.error {
+input.error {
 	border: 1px solid red;
 }
-label.error[for="email"] {
+label.error {
 	color: red;
 	font-size: 0.5em;
 	margin: 0.1em 0 2em;

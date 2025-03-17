@@ -29,7 +29,12 @@ void setupSignup(App& app, Database& database)
 		else
 		{
 			crow::mustache::template_t page = crow::mustache::load("login.html");
-			response = page.render({ {"emailError", true}, {"emailExists", true} });
+			response = page.render({
+				{"emailError", true},
+				{"emailExists", true},
+				{"email", request.get_body_params().get("email")},
+				{"password", request.get_body_params().get("password")}
+			});
 			response.code = crow::CONFLICT;
 		}
 
@@ -40,6 +45,24 @@ void setupSignup(App& app, Database& database)
 	CROW_ROUTE(app, "/login").methods("POST"_method)([&database](crow::request request)
 	{
 		crow::response response;
+
+		if (database.validateUser(request.get_body_params().get("email"), request.get_body_params().get("password")))
+		{
+			response.set_header("Location", "/lessons");
+			response.code = crow::FOUND;
+		}
+		else
+		{
+			crow::mustache::template_t page = crow::mustache::load("login.html");
+			response = page.render({
+				{"emailError", true},
+				{"passwordError", true},
+				{"email", request.get_body_params().get("email")},
+				{"password", request.get_body_params().get("password")}
+			});
+			response.code = crow::UNAUTHORIZED;
+		}
+
 		return response;
 	});
 }

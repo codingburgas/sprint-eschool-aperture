@@ -49,7 +49,7 @@ bool Database::validateUser(const string& email, const string& password)
 
 	try
 	{
-		database << "SELECT password FROM users WHERE email = '?';"
+		database << "SELECT password FROM users WHERE email = ?;"
 			     << email
 			     >> storedHash;
 
