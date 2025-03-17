@@ -6,6 +6,7 @@
 #include "styles.hpp"
 #include "media.hpp"
 #include "signup.hpp"
+#include "lessons.hpp"
 
 ApertureNotepad::ApertureNotepad()
 	: app()
@@ -22,6 +23,7 @@ void ApertureNotepad::setupApp()
 	setupCSS(app, cssBlueprint);
 	setupMedia(app, mediaBlueprint);
 	setupSignup(app, database);
+	setupLessons(app, lessonsBlueprint);
 
 	CROW_ROUTE(app, "/")([]()
 	{
