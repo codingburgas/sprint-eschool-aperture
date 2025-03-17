@@ -1,0 +1,37 @@
+#include "app.hpp"
+
+#include <crow.h>
+
+#include "database.hpp"
+#include "styles.hpp"
+#include "media.hpp"
+#include "signup.hpp"
+
+ApertureNotepad::ApertureNotepad()
+	: app()
+	, database("database.db")
+	, cssBlueprint("css")
+	, mediaBlueprint("media")
+	, lessonsBlueprint("lessons")
+{
+	setupApp();
+}
+
+void ApertureNotepad::setupApp()
+{
+	setupCSS(app, cssBlueprint);
+	setupMedia(app, mediaBlueprint);
+	setupSignup(app, database);
+
+	CROW_ROUTE(app, "/")([]()
+	{
+		crow::response response;
+		response.set_static_file_info("static/index.html");
+		return response;
+	});
+}
+
+void ApertureNotepad::run()
+{
+	app.multithreaded().run();
+}
