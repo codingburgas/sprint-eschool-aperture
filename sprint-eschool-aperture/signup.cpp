@@ -1,8 +1,10 @@
 #include "signup.hpp"
 
 #include <crow.h>
+#include <crow/middlewares/cookie_parser.h>
 
 #include "app.hpp"
+#include "authentication.hpp"
 #include "database.hpp"
 
 void setupSignup(App& app, Database& database)
@@ -17,52 +19,62 @@ void setupSignup(App& app, Database& database)
 	});
 
 	// Register
-	CROW_ROUTE(app, "/register").methods("POST"_method)([&database](crow::request request)
+	CROW_ROUTE(app, "/register").methods("POST"_method)([&app, &database](const crow::request& request, crow::response& response)
 	{
-		crow::response response;
+		string email = request.get_body_params().get("email");
+		string password = request.get_body_params().get("password");
 
-		if (database.insertUser(request.get_body_params().get("email"), request.get_body_params().get("password")))
+		if (database.insertUser(email, password))
 		{
-			response.set_header("Location", "/lessons");
-			response.code = crow::FOUND;
+			authorize(app, request, response, email);
 		}
 		else
 		{
 			crow::mustache::template_t page = crow::mustache::load("login.html");
-			response = page.render({
+			response.body = page.render({
 				{"emailError", true},
 				{"emailExists", true},
-				{"email", request.get_body_params().get("email")},
-				{"password", request.get_body_params().get("password")}
-			});
+				{"email", email},
+				{"password", password}
+			}).dump();
+
 			response.code = crow::CONFLICT;
 		}
 
-		return response;
+		response.end();
 	});
 
 	// Log in
-	CROW_ROUTE(app, "/login").methods("POST"_method)([&database](crow::request request)
+	CROW_ROUTE(app, "/login").methods("POST"_method)([&app, &database](const crow::request& request, crow::response& response)
 	{
-		crow::response response;
+		string email = request.get_body_params().get("email");
+		string password = request.get_body_params().get("password");
 
-		if (database.validateUser(request.get_body_params().get("email"), request.get_body_params().get("password")))
+		if (database.validateUser(email, password))
 		{
-			response.set_header("Location", "/lessons");
-			response.code = crow::FOUND;
+			authorize(app, request, response, email);
 		}
 		else
 		{
 			crow::mustache::template_t page = crow::mustache::load("login.html");
-			response = page.render({
+			response.body = page.render({
 				{"emailError", true},
 				{"passwordError", true},
-				{"email", request.get_body_params().get("email")},
-				{"password", request.get_body_params().get("password")}
-			});
+				{"email", email},
+				{"password", password}
+			}).dump();
+
 			response.code = crow::UNAUTHORIZED;
 		}
 
-		return response;
+		response.end();
 	});
+}
+
+void authorize(App& app, const crow::request& request, crow::response& response, const string& email)
+{
+	app.get_context<crow::CookieParser>(request).set_cookie("key", generateToken(email));
+
+	response.add_header("Location", "/lessons");
+	response.code = crow::FOUND;
 }

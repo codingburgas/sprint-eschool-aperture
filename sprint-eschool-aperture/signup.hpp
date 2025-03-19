@@ -5,4 +5,6 @@
 #include "app.hpp"
 #include "database.hpp"
 
-void setupSignup(App& app, Database& database);
+void authorize(App&, const crow::request&, crow::response&, const string& email);
+
+void setupSignup(App&, Database&);

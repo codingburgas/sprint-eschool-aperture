@@ -3,9 +3,10 @@
 #include <crow.h>
 #include <crow/middlewares/cookie_parser.h>
 
+#include "authentication.hpp"
 #include "database.hpp"
 
-using App = crow::App<crow::CookieParser>;
+using App = crow::App<crow::CookieParser, Authentication>;
 
 class ApertureNotepad
 {
