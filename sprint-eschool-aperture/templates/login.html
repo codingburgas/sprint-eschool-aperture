@@ -9,7 +9,7 @@
 <body>
     <main>
         <h1>Aperture Notepad</h1>
-        <form action="/login" method="POST">
+        <form action="/login/" method="POST">
             <label for="email">Email</label>
             <input type="email" id="email" name="email" {{#emailError}}class="error" {{/emailError}}placeholder="example@email.com" value="{{email}}" required>
             {{#emailExists}}<label for="email" class="error">Please use a different email</label>{{/emailExists}}
@@ -17,7 +17,7 @@
             <input type="password" id="password" name="password" {{#passwordError}}class="error" {{/passwordError}}placeholder="***********" value="{{password}}" required>
             {{#passwordError}}<label for="password" class="error">Incorrect email or password</label>{{/passwordError}}
             <input type="submit" value="Log in">
-            <input type="submit" value="Register" formaction="/register">
+            <input type="submit" value="Register" formaction="/register/">
         </form>
     </main>
 

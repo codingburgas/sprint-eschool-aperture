@@ -11,7 +11,7 @@ void setupMedia(App& app, crow::Blueprint& mediaBlueprint)
 	if (mediaBlueprint.prefix() != "media")
 		mediaBlueprint = crow::Blueprint("media");
 
-	CROW_BP_ROUTE(mediaBlueprint, "/<path>")([](string file)
+	CROW_BP_ROUTE(mediaBlueprint, "/<path>")([](const string& file)
 	{
 		crow::response response;
 		response.set_static_file_info("static/media/" + file);

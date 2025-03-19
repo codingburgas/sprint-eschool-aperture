@@ -12,7 +12,7 @@ void setupLessons(App& app, crow::Blueprint& lessonsBlueprint)
 
 	lessonsBlueprint.CROW_MIDDLEWARES(app, Authentication);
 
-	CROW_BP_ROUTE(lessonsBlueprint, "")([]()
+	CROW_BP_ROUTE(lessonsBlueprint, "/")([]()
 	{
 		crow::response response;
 		response.set_static_file_info("static/html/lessons.html");

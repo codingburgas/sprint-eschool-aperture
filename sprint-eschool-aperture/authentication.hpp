@@ -16,7 +16,7 @@ struct Authentication : crow::ILocalMiddleware
 	{};
 
 	template <typename AppContext>
-	void before_handle(crow::request& request, crow::response& response, context&, AppContext& appContext)
+	void before_handle(crow::request&, crow::response& response, context&, AppContext& appContext)
 	{
 		string key = appContext.get<crow::CookieParser>().get_cookie("key");
 
@@ -44,7 +44,7 @@ struct Authentication : crow::ILocalMiddleware
 /*
 if (request.url == "/login/" || request.url == "/register/")
 			{
-				response.add_header("Location", "/lessons");
+				response.add_header("Location", "/lessons/");
 				response.code = crow::SEE_OTHER;
 				response.end();
 			}*/
