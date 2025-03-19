@@ -1,6 +1,5 @@
 #include "database.hpp"
 
-#include <iostream>
 #include <string>
 
 #include <crow.h>
