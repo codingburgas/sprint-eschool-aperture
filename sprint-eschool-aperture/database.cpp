@@ -21,7 +21,7 @@ bool Database::insertUser(const string& email, const string& password)
 {
 	try
 	{
-		database << "INSERT INTO users (email, password) VALUES (?, ?);"
+		database << "INSERT INTO users (email, password) VALUES (?, ?);" // Prepared statement for inserting users email and password
 		         << email
 		         << bcrypt::generateHash(password);
 
@@ -49,8 +49,8 @@ bool Database::validateUser(const string& email, const string& password)
 	try
 	{
 		database << "SELECT password FROM users WHERE email = ?;"
-			     << email
-			     >> storedHash;
+		         << email
+		         >> storedHash;
 
 		return bcrypt::validatePassword(password, storedHash);
 	}
