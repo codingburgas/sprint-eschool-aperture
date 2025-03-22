@@ -19,27 +19,33 @@ Database::Database(const string& databaseName)
 
 bool Database::insertUser(const string& email, const string& password)
 {
-	try
+
+	if (!validateEmail(email))
 	{
-		database << "INSERT INTO users (email, password) VALUES (?, ?);" // Prepared statement for inserting users email and password
-		         << email
-		         << bcrypt::generateHash(password);
-
-		CROW_LOG_INFO << "User added successfuly";
-
-		return true;
+		return false;
 	}
-	catch (const sqlite::sqlite_exception& exception)
-	{
-		switch (exception.get_extended_code())
+
+		try
 		{
-		case SQLITE_CONSTRAINT_UNIQUE:
-			return false;
-		default:
-			CROW_LOG_ERROR << exception.errstr();
-			return false;
+			database << "INSERT INTO users (email, password) VALUES (?, ?);" // Prepared statement for inserting users email and password
+				<< email
+				<< bcrypt::generateHash(password);
+
+			CROW_LOG_INFO << "User added successfuly";
+
+			return true;
 		}
-	}
+		catch (const sqlite::sqlite_exception& exception)
+		{
+			switch (exception.get_extended_code())
+			{
+			case SQLITE_CONSTRAINT_UNIQUE:
+				return false;
+			default:
+				CROW_LOG_ERROR << exception.errstr();
+				return false;
+			}
+		}
 }
 
 bool Database::validateUser(const string& email, const string& password)
@@ -59,4 +65,9 @@ bool Database::validateUser(const string& email, const string& password)
 		CROW_LOG_ERROR << exception.errstr();
 		return false;
 	}
+}
+
+bool Database::validateEmail(const string& email)
+{
+		return email.find('@') != string::npos and email.find('.') != string::npos;
 }

@@ -16,4 +16,5 @@ public:
 
 private:
 	sqlite::database database;
+	bool validateEmail(const string& email);
 };
