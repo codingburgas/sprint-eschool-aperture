@@ -13,7 +13,7 @@ public:
 
 	bool insertUser(const string& email, const string& password);
 	bool validateUser(const string& email, const string& password);
-	string getUserId(const string& email);
+	string getUserIdFromEmail(const string& email);
 
 private:
 	sqlite::database database;

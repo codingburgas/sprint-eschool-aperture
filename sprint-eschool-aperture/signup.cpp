@@ -25,7 +25,7 @@ void setupSignup(App& app, Database& database)
 
 		if (database.insertUser(email, password))
 		{
-			authorize(app, request, response, email);
+			authorize(app, request, response, database.getUserIdFromEmail(email));
 		}
 		else
 		{
@@ -51,7 +51,7 @@ void setupSignup(App& app, Database& database)
 
 		if (database.validateUser(email, password))
 		{
-			authorize(app, request, response, email);
+			authorize(app, request, response, database.getUserIdFromEmail(email));
 		}
 		else
 		{
@@ -70,9 +70,11 @@ void setupSignup(App& app, Database& database)
 	});
 }
 
-void authorize(App& app, const crow::request& request, crow::response& response, const string& email)
+void authorize(App& app, const crow::request& request, crow::response& response, const string& userId)
 {
-	app.get_context<crow::CookieParser>(request).set_cookie("token", generateToken(email)).path("/").httponly();
+	app.get_context<crow::CookieParser>(request).set_cookie("token", generateToken(userId))
+	                                            .path("/")
+	                                            .httponly();
 
 	response.add_header("Location", "/lessons/");
 	response.code = crow::FOUND;
