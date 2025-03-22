@@ -1,6 +1,11 @@
+@font-face {
+	font-family: 'Gefika';
+	src: url('/media/fonts/Gefika.otf') format('opentype');
+}
+
 body {
-    background-color: rgb(219, 232, 234);
-    font-family: Arial, sans-serif;
+    background-color: rgb(36, 33, 33);
+    font-family: 'Gefika', sans-serif;
     margin: 0;
     padding: 0;
     display: flex;
@@ -8,7 +13,7 @@ body {
 }
 
 header {
-    background-color: darkblue;
+    background-color: rgb(62, 129, 230);
     color: white;
     text-align: center;
     padding: 20px 0;
@@ -17,7 +22,8 @@ header {
 
 main {
     width: 800px;
-    background-color: white;
+    background: -webkit-linear-gradient(to top, #3a6073, #3a7bd5);
+	background: linear-gradient(to top, #3a6073, #3a7bd5);
     border: 3px solid darkblue;
     border-radius: 16px;
     padding: 25px;
@@ -27,13 +33,13 @@ main {
 }
 
 #add {
-    background-color: darkblue;
+    background-color: rgb(43, 99, 250);
     color: white;
     border: 3px solid gray;
     border-radius: 50%;
     width: 50px;
     height: 50px;
-    font-size: 28px;
+    font-size: 38px;
     cursor: pointer;
     display: block;
     margin: 15px auto;
@@ -41,7 +47,9 @@ main {
 
 #add:hover {
     background-color: powderblue;
-    color: darkblue;
+    color: rgb(0, 128, 202);
+    transform: translateY(1px);
+    transition: all 0.2s ease;
 }
 
 ul {
@@ -64,8 +72,10 @@ li a {
 }
 
 li a:hover {
-    background-color: darkblue;
-    color: white;
+    background-color: #F86C3D;
+    color: rgb(0, 0, 0);
+    transform: translateY(2px);
+    transition: all 0.5s ease;
 }
 
 .container {
@@ -86,6 +96,6 @@ li a:hover {
     border-radius: 16px;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    color: darkblue;
+    color: rgb(94, 94, 202);
     font-weight: bold;
 }
