@@ -8,7 +8,7 @@
 
 using namespace std;
 
-string generateToken(const string& email);
+string generateToken(string userId);
 
 struct Authentication : crow::ILocalMiddleware
 {
