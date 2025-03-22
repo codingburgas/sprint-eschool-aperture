@@ -6,6 +6,7 @@
 	<title>Lessons | Aperture Notepad</title>
 	<link rel="stylesheet" href="../css/lessons.css">
     <script src= "/js/addLesson.js" defer="true"></script>
+    <script src= "/js/insertImage.js" defer="true"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
 </head>
@@ -39,8 +40,19 @@
 
 		<div class="lesson-window">
 			<h2 id="lesson-content">Click a lesson to view details.</h2>
+    
 
-            <textarea class = "textarea" placeholder="Paste your notes or write your lesson plan..."></textarea>
+            <div class="imageAddButton">
+            <label for="imageUpload" class="upload-btn">
+                <i class="fa-solid fa-image"></i> Upload Image
+            </label>
+            <input type="file" id="imageUpload" accept="image/*">
+            </div>
+
+
+            <div class="editable" contenteditable="true">
+                Type here...
+            </div>
 
 		</div>
 	</div>

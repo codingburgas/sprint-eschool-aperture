@@ -100,11 +100,11 @@ li a:hover {
     font-weight: bold;
 }
 
-.textarea {
-    width: 95%; /* Makes it fully responsive */
-    height: 100%; /* Makes it fully responsive */
-    max-width: 800px; /* Prevents it from getting too large */
-    max-height: 600px; /* Fixed height */
+.editable {
+    width: 95%;
+    height:  95%;
+    max-width: 800px;
+    max-height: 570px;
     padding: 10px;
     font-size: 150%;
     font-weight: bold;
@@ -115,23 +115,20 @@ li a:hover {
     outline: none;
     font-family: monospace, sans-serif;
     transition: all 0.1s;
-    resize: none; /* Disables manual resizing */
+    resize: none; /* No resizing */
+    overflow: auto; /* Scroll if content is too large */
 }
 
-.textarea:hover {
+.editable:hover {
     cursor: pointer;
     background-color: #494a4b;
     transition: all 0.4s;
 }
 
-.textarea:focus {
+.editable:focus {
     cursor: text;
     background-color: #878d91;
     border-color: #2e2b2b;
-}
-
-.textarea:focus::placeholder {
-    color: #000000;
 }
 
 /* Width of the scrollbar */
@@ -182,4 +179,23 @@ li a:hover {
 
 .square-button:hover {
     background-color: #2e5a9e;
+}
+
+
+#imageUpload
+{
+    display:none; 
+}
+
+.imageAddButton
+{
+    font-size: 115%;
+}
+
+.imageAddButton:hover
+{
+    cursor: pointer;
+    color: rgb(76, 89, 204);
+    font-size: 120%;
+    transition: all 0.3s;
 }
