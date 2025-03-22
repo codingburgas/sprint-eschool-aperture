@@ -19,6 +19,7 @@ private:
 	App app;
 	Database database;
 
+	crow::Blueprint jsBlueprint;
 	crow::Blueprint cssBlueprint;
 	crow::Blueprint mediaBlueprint;
 	crow::Blueprint lessonsBlueprint;

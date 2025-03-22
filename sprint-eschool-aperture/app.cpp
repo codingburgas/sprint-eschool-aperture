@@ -4,6 +4,7 @@
 
 #include "database.hpp"
 #include "styles.hpp"
+#include "js.hpp"
 #include "media.hpp"
 #include "signup.hpp"
 #include "lessons.hpp"
@@ -12,6 +13,7 @@ ApertureNotepad::ApertureNotepad()
 	: app()
 	, database("database.db")
 	, cssBlueprint("css")
+	, jsBlueprint("js")
 	, mediaBlueprint("media")
 	, lessonsBlueprint("lessons")
 {
@@ -20,6 +22,7 @@ ApertureNotepad::ApertureNotepad()
 
 void ApertureNotepad::setupApp()
 {
+	setupJS(app, jsBlueprint);
 	setupCSS(app, cssBlueprint);
 	setupMedia(app, mediaBlueprint);
 	setupSignup(app, database);
