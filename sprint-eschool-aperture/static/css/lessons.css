@@ -99,3 +99,87 @@ li a:hover {
     color: rgb(94, 94, 202);
     font-weight: bold;
 }
+
+.textarea {
+    width: 95%; /* Makes it fully responsive */
+    height: 100%; /* Makes it fully responsive */
+    max-width: 800px; /* Prevents it from getting too large */
+    max-height: 600px; /* Fixed height */
+    padding: 10px;
+    font-size: 150%;
+    font-weight: bold;
+    color: rgb(233, 233, 233);
+    background-color: #2b2b2b;
+    border-radius: 10px;
+    border: 2px solid transparent;
+    outline: none;
+    font-family: monospace, sans-serif;
+    transition: all 0.1s;
+    resize: none; /* Disables manual resizing */
+}
+
+.textarea:hover {
+    cursor: pointer;
+    background-color: #494a4b;
+    transition: all 0.4s;
+}
+
+.textarea:focus {
+    cursor: text;
+    background-color: #878d91;
+    border-color: #2e2b2b;
+}
+
+.textarea:focus::placeholder {
+    color: #000000;
+}
+
+/* Width of the scrollbar */
+::-webkit-scrollbar {
+    width: 10px; /* Change this to adjust scrollbar width */
+}
+
+/* Background of the scrollbar track */
+::-webkit-scrollbar-track {
+    background: #2b2b2b; /* Dark background */
+    border-radius: 10px;
+}
+
+/* Scrollbar handle (draggable part) */
+::-webkit-scrollbar-thumb {
+    background: #888; /* Gray scrollbar */
+    border-radius: 10px;
+    border: 2px solid #2b2b2b; /* Adds spacing */
+}
+
+/* Scrollbar handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; /* Darker when hovered */
+}
+
+.button-container {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 10px;
+}
+
+.square-button {
+    width: 50px;
+    height: 50px;
+    background-color: #3a7bd5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 20px; /* Adjusts icon size */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s;
+}
+
+.square-button:hover {
+    background-color: #2e5a9e;
+}
