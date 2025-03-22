@@ -80,3 +80,14 @@ bool Database::validateEmail(const string& email)
 {
 		return email.find('@') != string::npos and email.find('.') != string::npos;
 }
+
+string Database::getUserId(const string& email)
+{
+	string userId;
+
+	database << "SELECT user_id FROM users WHERE email = ?;"
+		<< email
+		>> userId;
+
+	return userId;
+}
