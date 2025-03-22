@@ -4,4 +4,4 @@
 
 #include "app.hpp"
 
-void setupJS(App& app, crow::Blueprint& jsBlueprint);
+void setupJs(App& app, crow::Blueprint& jsBlueprint);

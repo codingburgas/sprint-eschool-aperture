@@ -22,8 +22,8 @@ ApertureNotepad::ApertureNotepad()
 
 void ApertureNotepad::setupApp()
 {
-	setupJS(app, jsBlueprint);
-	setupCSS(app, cssBlueprint);
+	setupJs(app, jsBlueprint);
+	setupCss(app, cssBlueprint);
 	setupMedia(app, mediaBlueprint);
 	setupSignup(app, database);
 	setupLessons(app, lessonsBlueprint);

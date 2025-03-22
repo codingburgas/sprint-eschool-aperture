@@ -4,4 +4,4 @@
 
 #include "app.hpp"
 
-void setupCSS(App& app, crow::Blueprint& cssBlueprint);
+void setupCss(App& app, crow::Blueprint& cssBlueprint);

@@ -8,7 +8,7 @@
 
 using namespace std;
 
-void setupCSS(App& app, crow::Blueprint& cssBlueprint)
+void setupCss(App& app, crow::Blueprint& cssBlueprint)
 {
 	if (cssBlueprint.prefix() != "css")
 		cssBlueprint = crow::Blueprint("css");
