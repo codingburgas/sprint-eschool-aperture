@@ -11,11 +11,20 @@ using namespace std;
 Database::Database(const string& databaseName)
 	: database(sqlite::database(databaseName))
 {
+	//Add table for users
 	database << "CREATE TABLE IF NOT EXISTS users ("
-	            "	id INTEGER PRIMARY KEY AUTOINCREMENT,"
+	            "	user_id INTEGER PRIMARY KEY AUTOINCREMENT,"
 	            "	email TEXT NOT NULL UNIQUE,"
 	            "	password TEXT NOT NULL);";
-}
+
+
+	// Add table for the lesson files
+	database << "CREATE TABLE IF NOT EXISTS lessons ("
+		       "   user_id INTEGER,"
+		       "   title TEXT NOT NULL UNIQUE,"
+		       "   path_to_lesson_file TEXT NOT NULL UNIQUE,"
+		       "   FOREIGN KEY(user_id) REFERENCES users(user_id));"; 
+} 
 
 bool Database::insertUser(const string& email, const string& password)
 {
