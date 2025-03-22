@@ -7,7 +7,7 @@
 
 using namespace std;
 
-string generateToken(string userId)
+string generateToken(const string& userId)
 {
 	return jwt::create()
 	           .set_issuer("Aperture Notepad")

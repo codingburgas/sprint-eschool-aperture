@@ -8,7 +8,7 @@
 
 using namespace std;
 
-string generateToken(string userId);
+string generateToken(const string& userId);
 
 struct Authentication : crow::ILocalMiddleware
 {
@@ -18,7 +18,7 @@ struct Authentication : crow::ILocalMiddleware
 	template <typename AppContext>
 	void before_handle(crow::request&, crow::response& response, context&, AppContext& appContext)
 	{
-		string key = appContext.get<crow::CookieParser>().get_cookie("key");
+		string key = appContext.get<crow::CookieParser>().get_cookie("token");
 
 		try
 		{
