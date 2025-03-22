@@ -44,13 +44,13 @@ h1 {
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 3px;
-    color: #0076A3;
+    color: #0eb9fd;
     margin: 70px;
 }
 
 section#menu > a {
-    background-color: #0076A3;
-    color: #D1D3D4;
+    background-color:#0899d3;
+    color: #ffffff;
     font-family: 'Gefika', sans-serif;
     font-size: 150%;
     padding: 10px 20px;
