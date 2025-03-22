@@ -25,9 +25,9 @@ local function cloneExternalLibraries()
 		local code = io.readfile("packages/bcrypt/src/bcrypt.cpp")
 		code = table.implode(string.explode(code, "bcrypt.h"), "", "", "bcryptcpp.h")
 		io.writefile("packages/bcrypt/src/bcrypt.cpp", code)
-		includedirs "packages/bcrypt/src"
-		files "packages/bcrypt/src/*"
 	end
+	includedirs "packages/bcrypt/src"
+	files "packages/bcrypt/src/*"
 
 	-- Link libraries
 	table.foreachi(os.matchfiles("packages/*/lib/*.lib"), function(lib)
