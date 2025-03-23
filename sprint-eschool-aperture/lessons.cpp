@@ -22,6 +22,7 @@ void setupLessons(App& app, crow::Blueprint& lessonsBlueprint, Database& databas
 		return response;
 	});
 
+
 	CROW_BP_ROUTE(lessonsBlueprint, "/").methods("POST"_method)([&app, &database](crow::request request)
 	{
 		string token = app.get_context<crow::CookieParser>(request).get_cookie("token");
@@ -31,6 +32,13 @@ void setupLessons(App& app, crow::Blueprint& lessonsBlueprint, Database& databas
 
 		return crow::response();
 	});
+
+	CROW_BP_ROUTE(lessonsBlueprint, "/quiz/").methods("GET"_method)([]()
+		{
+			crow::response response;
+			response.set_static_file_info("static/html/quiz.html");
+			return response;
+		});
 
 	app.register_blueprint(lessonsBlueprint);
 }
