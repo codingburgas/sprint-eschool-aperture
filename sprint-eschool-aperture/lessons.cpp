@@ -8,6 +8,7 @@
 #include "authentication.hpp"
 #include "database.hpp"
 
+
 void setupLessons(App& app, crow::Blueprint& lessonsBlueprint, Database& database)
 {
 	if (lessonsBlueprint.prefix() != "lessons")
@@ -40,5 +41,25 @@ void setupLessons(App& app, crow::Blueprint& lessonsBlueprint, Database& databas
 			return response;
 		});
 
+	CROW_BP_ROUTE(lessonsBlueprint, "/names/").methods("GET"_method)([&app, &database](crow::request request)
+		{
+			crow::json::wvalue response;
+
+			string token = app.get_context<crow::CookieParser>(request).get_cookie("token");
+			string userId = jwt::decode(token).get_subject();
+			vector<string> lessonNames = database.getUsersLessons(userId);
+
+			for (size_t i = 0; i < lessonNames.size(); i++)
+			{
+				response[i] = lessonNames[i];
+			}
+
+			return response;
+		});
+
+
+
 	app.register_blueprint(lessonsBlueprint);
+
+
 }

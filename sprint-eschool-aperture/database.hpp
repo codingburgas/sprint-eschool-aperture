@@ -15,6 +15,7 @@ public:
 	bool validateUser(const string& email, const string& password);
 	string getUserIdFromEmail(const string& email);
 	bool createLesson(const string& userId, const string& lessonTitle);
+	vector<string> getUsersLessons(const string& userId);
 
 private:
 	sqlite::database database;

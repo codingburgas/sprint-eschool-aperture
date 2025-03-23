@@ -1,10 +1,12 @@
 #include "database.hpp"
 
 #include <string>
+#include <vector>
 
 #include <crow.h>
 #include <bcryptcpp.h>
 #include <sqlite_modern_cpp.h>
+
 
 using namespace std;
 
@@ -20,7 +22,7 @@ Database::Database(const string& databaseName)
 	// Add table for the lesson files
 	database << "CREATE TABLE IF NOT EXISTS lessons ("
 	            "	user_id INTEGER,"
-	            "	title TEXT NOT NULL UNIQUE,"
+	            "	title TEXT NOT NULL,"
 	            "	file_path TEXT NOT NULL UNIQUE,"
 	            "	FOREIGN KEY (user_id) REFERENCES users(user_id));"; 
 } 
@@ -115,3 +117,30 @@ bool Database::createLesson(const string& userId, const string& lessonTitle)
 		}
 	}
 }
+
+vector<string> Database::getUsersLessons(const string& userId)
+{
+
+	try
+	{
+		vector<string> lessonNames;
+
+
+		database << "SELECT title FROM lessons WHERE user_id = ?;"
+			<< userId
+			>> lessonNames;
+
+		return lessonNames;
+	}
+	catch (const sqlite::sqlite_exception& exception)
+	{
+		switch (exception.get_extended_code())
+		{
+		case SQLITE_DONE: return  vector<string>();
+		default: CROW_LOG_ERROR << exception.get_extended_code();
+		}
+	}
+
+}
+
+
