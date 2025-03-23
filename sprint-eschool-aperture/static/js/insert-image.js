@@ -1,8 +1,10 @@
-document.getElementById('imageUpload').addEventListener('change', function(event) {
+const imageUploadButton = document.getElementById('imageUpload');
+
+imageUploadButton.addEventListener('change', event => {
     const file = event.target.files[0];
     if (file) {
         const reader = new FileReader();
-        reader.onload = function(e) {
+        reader.onload = e => {
             const img = document.createElement('img');
             img.src = e.target.result;
             img.style.maxWidth = "300px"; // Limit image size
