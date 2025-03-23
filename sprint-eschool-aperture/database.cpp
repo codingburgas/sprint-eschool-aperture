@@ -90,3 +90,28 @@ string Database::getUserIdFromEmail(const string& email)
 
 	return userId;
 }
+
+bool Database::createLesson(const string& userId, const string& lessonTitle)
+{
+	try
+	{
+		database << "INSERT INTO lessons (user_id, title, file_path) VALUES (?, ?, ?);"
+		         << userId
+		         << lessonTitle
+		         << "lessons/" + userId + '-' + lessonTitle + ".json";
+
+		return true;
+	}
+	catch (const sqlite::sqlite_exception& exception)
+	{
+		switch (exception.get_extended_code())
+		{
+		case SQLITE_CONSTRAINT_UNIQUE:
+			return false;
+
+		default:
+			CROW_LOG_ERROR << exception.errstr();
+			return false;
+		}
+	}
+}

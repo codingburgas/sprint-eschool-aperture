@@ -14,6 +14,7 @@ public:
 	bool insertUser(const string& email, const string& password);
 	bool validateUser(const string& email, const string& password);
 	string getUserIdFromEmail(const string& email);
+	bool createLesson(const string& userId, const string& lessonTitle);
 
 private:
 	sqlite::database database;

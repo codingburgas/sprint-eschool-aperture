@@ -26,7 +26,7 @@ void ApertureNotepad::setupApp()
 	setupCss(app, cssBlueprint);
 	setupMedia(app, mediaBlueprint);
 	setupSignup(app, database);
-	setupLessons(app, lessonsBlueprint);
+	setupLessons(app, lessonsBlueprint, database);
 
 	CROW_ROUTE(app, "/")([]()
 	{
