@@ -5,17 +5,18 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Lessons | Aperture Notepad</title>
 	<link rel="stylesheet" href="/css/lessons.css">
-    <script src= "/js/add-lesson.js" defer="true"></script>
-    <script src= "/js/insert-image.js" defer="true"></script>
-    <script src= "/js/get-lesson-names.js" defer="true"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <script src="/js/add-lesson.js" defer="true"></script>
+    <script src="/js/insert-image.js" defer="true"></script>
+    <script src="/js/get-lessons.js" defer="true"></script>
+    <script src="/js/select-lesson.js" defer="true"></script>
 </head>
 <body>
 	<header>
 		<h1>Aperture Notepad</h1>
         <div id="actions">
             <button class="square-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-            <a href ="/lessons/quiz/" class="square-button"><i class="fa-solid fa-expand"></i></a>
+            <a href="/lessons/quiz/" class="square-button"><i class="fa-solid fa-expand"></i></a>
             <button class="square-button"><i class="fa-solid fa-floppy-disk"></i></button>
         </div>
 	</header>
@@ -55,20 +56,5 @@
             </div>
         </article>
 	</main>
-
-	<script>
-// Select all lessons and the content panel
-const lessons = document.querySelectorAll('#lesson-list li');
-const lessonContent = document.getElementById('lesson-content');
-
-// Add click event to each lesson
-lessons.forEach((lesson) => {
-    lesson.addEventListener('click', () => {
-        const lessonName = lesson.textContent.trim(); // Get the clicked lesson's text
-        lessonContent.textContent = `${lessonName}`;
-    });
-});
-
-    </script>
 </body>
 </html>

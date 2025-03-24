@@ -1,4 +1,4 @@
-function getLessonNames() {
+function getLessons() {
     fetch("/lessons/names/", {
 		method: "GET"
 	})
@@ -7,4 +7,4 @@ function getLessonNames() {
     });
 }
 
-getLessonNames();
+getLessons();
