@@ -7,7 +7,6 @@
 #include <bcryptcpp.h>
 #include <sqlite_modern_cpp.h>
 
-
 using namespace std;
 
 Database::Database(const string& databaseName)
@@ -100,7 +99,7 @@ bool Database::createLesson(const string& userId, const string& lessonTitle)
 		database << "INSERT INTO lessons (user_id, title, file_path) VALUES (?, ?, ?);"
 		         << userId
 		         << lessonTitle
-		         << "lessons/" + userId + '-' + lessonTitle + ".json";
+		         << "lessons/" + userId + '-' + lessonTitle + ".txt";
 
 		return true;
 	}
@@ -118,17 +117,17 @@ bool Database::createLesson(const string& userId, const string& lessonTitle)
 	}
 }
 
-vector<string> Database::getUsersLessons(const string& userId)
+crow::json::wvalue Database::getUsersLessons(const string& userId)
 {
-
 	try
 	{
-		vector<string> lessonNames;
+		crow::json::wvalue lessonNames;
 
-
-		database << "SELECT title FROM lessons WHERE user_id = ?;"
-			<< userId
-			>> lessonNames;
+		database << "SELECT title FROM lessons WHERE user_id = ?;" << userId >>
+		[&lessonNames](const string& lessonName)
+		{
+			lessonNames[lessonNames.size()] = lessonName;
+		};
 
 		return lessonNames;
 	}
@@ -136,11 +135,11 @@ vector<string> Database::getUsersLessons(const string& userId)
 	{
 		switch (exception.get_extended_code())
 		{
-		case SQLITE_DONE: return  vector<string>();
-		default: CROW_LOG_ERROR << exception.get_extended_code();
+		case SQLITE_DONE:
+			return crow::json::wvalue();
+		default:
+			CROW_LOG_ERROR << exception.errstr();
+			return crow::json::wvalue();
 		}
 	}
-
 }
-
-

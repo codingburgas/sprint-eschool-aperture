@@ -35,31 +35,18 @@ void setupLessons(App& app, crow::Blueprint& lessonsBlueprint, Database& databas
 	});
 
 	CROW_BP_ROUTE(lessonsBlueprint, "/quiz/").methods("GET"_method)([]()
-		{
-			crow::response response;
-			response.set_static_file_info("static/html/quiz.html");
-			return response;
-		});
+	{
+		crow::response response;
+		response.set_static_file_info("static/html/quiz.html");
+		return response;
+	});
 
 	CROW_BP_ROUTE(lessonsBlueprint, "/names/").methods("GET"_method)([&app, &database](crow::request request)
-		{
-			crow::json::wvalue response;
-
-			string token = app.get_context<crow::CookieParser>(request).get_cookie("token");
-			string userId = jwt::decode(token).get_subject();
-			vector<string> lessonNames = database.getUsersLessons(userId);
-
-			for (size_t i = 0; i < lessonNames.size(); i++)
-			{
-				response[i] = lessonNames[i];
-			}
-
-			return response;
-		});
-
-
+	{
+		string token = app.get_context<crow::CookieParser>(request).get_cookie("token");
+		string userId = jwt::decode(token).get_subject();
+		return database.getUsersLessons(userId);
+	});
 
 	app.register_blueprint(lessonsBlueprint);
-
-
 }

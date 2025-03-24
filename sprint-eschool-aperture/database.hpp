@@ -1,7 +1,9 @@
 #pragma once
 
 #include <string>
+#include <vector>
 
+#include <crow.h>
 #include <sqlite_modern_cpp.h>
 
 using namespace std;
@@ -15,7 +17,7 @@ public:
 	bool validateUser(const string& email, const string& password);
 	string getUserIdFromEmail(const string& email);
 	bool createLesson(const string& userId, const string& lessonTitle);
-	vector<string> getUsersLessons(const string& userId);
+	crow::json::wvalue getUsersLessons(const string& userId);
 
 private:
 	sqlite::database database;
