@@ -7,7 +7,7 @@ body {
     background-color: rgb(36, 33, 33);
     font-family: 'Gefika', sans-serif;
     margin: 0;
-    padding: 0;
+    height: 100vh;
     display: flex;
     flex-direction: column;
 }
@@ -16,23 +16,56 @@ header {
     background-color: rgb(62, 129, 230);
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 2em 0;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-main {
-    width: 800px;
-    background: -webkit-linear-gradient(to top, #3a6073, #3a7bd5);
-	background: linear-gradient(to top, #3a6073, #3a7bd5);
-    border: 3px solid darkblue;
-    border-radius: 16px;
-    padding: 25px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    margin-top: 20px;
-    margin-left: 20px;
+h1 {
+    margin: 0;
 }
 
-#add {
+div#actions {
+    position: absolute;
+    top: 2em;
+    right: 2em;
+    display: flex;
+    gap: 0.6em;
+}
+
+.square-button {
+    padding: 0.6em;
+    background-color: #3a7bd5;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.square-button:hover {
+    background-color: #2e5a9e;
+}
+
+main {
+    overflow: auto;
+    margin-top: 1em;
+    display: flex;
+    column-gap: 1em;
+}
+
+main > * {
+    background: -webkit-linear-gradient(to top, #3a6073, #3a7bd5);
+	background: linear-gradient(to top, #3a6073, #3a7bd5);
+}
+
+nav {
+    min-width: 15em;
+    border-radius: 0 1em 1em 0;
+    overflow-y: auto;
+}
+
+button#add {
     background-color: rgb(43, 99, 250);
     color: white;
     border: 3px solid gray;
@@ -45,78 +78,79 @@ main {
     margin: 15px auto;
 }
 
-#add:hover {
+button#add:hover {
     background-color: powderblue;
     color: rgb(0, 128, 202);
     transform: translateY(1px);
     transition: all 0.2s ease;
 }
 
-ul {
+nav ul {
     list-style: none;
-    padding: 0;
+    padding: 0 0.4em;
     margin: 0;
-    max-height: 600px;
-    overflow-y: auto;
 }
 
-li a {
-    display: block;
+nav ul li {
     background-color: powderblue;
     color: darkblue;
     border: 2px solid gray;
     padding: 12px 18px;
     margin: 6px 0;
     border-radius: 10px;
-    text-decoration: none;
+    cursor: pointer;
 }
 
-li a:hover {
+nav ul li:hover {
     background-color: #F86C3D;
     color: rgb(0, 0, 0);
     transform: translateY(2px);
     transition: all 0.5s ease;
 }
 
-.container {
-    display: flex;
-    margin-right: 20px;
-}
-
-.lessons {
-    width: 700px;
-}
-
-.lesson-window {
-    width: 45%;
-    margin-top: 20px;
-    margin-left: 50px;
-    background-color: white;
-    border: 3px solid darkblue;
-    border-radius: 16px;
+article {
+    flex: auto;
+    border-radius: 1em 0 0 1em;
     padding: 20px;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
-    color: rgb(94, 94, 202);
+    color: rgb(233, 233, 233);
     font-weight: bold;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    margin: 0 0 1.6em;
+}
+
+#add-image
+{
+    font-size: 115%;
+    margin-bottom: 0.3em;
+}
+
+#add-image:hover
+{
+    color: rgb(233, 233, 233);
+    font-size: 120%;
+    transition: all 0.3s;
+    cursor: pointer;
+}
+
+input#image-upload
+{
+    display: none;
 }
 
 .editable {
-    width: 95%;
-    height:  95%;
-    max-width: 800px;
-    max-height: 570px;
-    padding: 10px;
+    flex: auto;
+    padding: 0.8em;
     font-size: 150%;
-    font-weight: bold;
-    color: rgb(233, 233, 233);
     background-color: #2b2b2b;
-    border-radius: 10px;
-    border: 2px solid transparent;
-    outline: none;
+    border-radius: 1em;
     font-family: monospace, sans-serif;
     transition: all 0.1s;
-    resize: none; /* No resizing */
-    overflow: auto; /* Scroll if content is too large */
+    overflow: auto;
 }
 
 .editable:hover {
@@ -133,69 +167,23 @@ li a:hover {
 
 /* Width of the scrollbar */
 ::-webkit-scrollbar {
-    width: 10px; /* Change this to adjust scrollbar width */
+    width: 10px;
 }
 
 /* Background of the scrollbar track */
 ::-webkit-scrollbar-track {
-    background: #2b2b2b; /* Dark background */
+    background: #2b2b2b;
     border-radius: 10px;
 }
 
 /* Scrollbar handle (draggable part) */
 ::-webkit-scrollbar-thumb {
-    background: #888; /* Gray scrollbar */
+    background: #888;
     border-radius: 10px;
-    border: 2px solid #2b2b2b; /* Adds spacing */
+    border: 2px solid #2b2b2b;
 }
 
 /* Scrollbar handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-    background: #555; /* Darker when hovered */
-}
-
-.button-container {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    display: flex;
-    gap: 10px;
-}
-
-.square-button {
-    width: 50px;
-    height: 50px;
-    background-color: #3a7bd5;
-    color: white;
-    border: none;
-    border-radius: 8px;
-    font-size: 20px; /* Adjusts icon size */
-    cursor: pointer;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s;
-}
-
-.square-button:hover {
-    background-color: #2e5a9e;
-}
-
-
-#imageUpload
-{
-    display:none; 
-}
-
-.imageAddButton
-{
-    font-size: 115%;
-}
-
-.imageAddButton:hover
-{
-    cursor: pointer;
-    color: rgb(76, 89, 204);
-    font-size: 120%;
-    transition: all 0.3s;
+    background: #555;
 }

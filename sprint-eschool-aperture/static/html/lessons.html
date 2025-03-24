@@ -13,58 +13,52 @@
 <body>
 	<header>
 		<h1>Aperture Notepad</h1>
+        <div id="actions">
+            <button class="square-button"><i class="fa-solid fa-magnifying-glass"></i></button>
+            <a href ="/lessons/quiz/" class="square-button"><i class="fa-solid fa-expand"></i></a>
+            <button class="square-button"><i class="fa-solid fa-floppy-disk"></i></button>
+        </div>
 	</header>
 
-	<div class="container">
-		<main class="lessons">
+    <main>
+        <nav class="lessons">
 			<button id="add">+</button>
 			<ul id="lesson-list">
-                <li><a>Lesson 1</a></li>
-                <li><a>Lesson 2</a></li>
-                <li><a>Lesson 3</a></li>
-                <li><a>Lesson 4</a></li>
-                <li><a>Lesson 5</a></li>
-                <li><a>Lesson 6</a></li>
-                <li><a>Lesson 7</a></li>
-                <li><a>Lesson 8</a></li>
-                <li><a>Lesson 9</a></li>
-                <li><a>Lesson 10</a></li>
-                <li><a>Lesson 11</a></li>
-                <li><a>Lesson 12</a></li>
-                <li><a>Lesson 13</a></li>
-                <li><a>Lesson 14</a></li>
-                <li><a>Lesson 15</a></li>
-                <li><a>Lesson 16</a></li>
+                <li>Lesson 1</li>
+                <li>Lesson 2</li>
+                <li>Lesson 3</li>
+                <li>Lesson 4</li>
+                <li>Lesson 5</li>
+                <li>Lesson 6</li>
+                <li>Lesson 7</li>
+                <li>Lesson 8</li>
+                <li>Lesson 9</li>
+                <li>Lesson 10</li>
+                <li>Lesson 11</li>
+                <li>Lesson 12</li>
+                <li>Lesson 13</li>
+                <li>Lesson 14</li>
+                <li>Lesson 15</li>
+                <li>Lesson 16</li>
 			</ul>
-		</main>
+        </nav>
 
-		<div class="lesson-window">
-			<h2 id="lesson-content">Click a lesson to view details.</h2>
+        <article>
+            <h2 id="lesson-title">Click a lesson to view details.</h2>
 
-            <div class="imageAddButton">
-            <label for="imageUpload" class="upload-btn">
+            <label id="add-image" for="image-upload">
                 <i class="fa-solid fa-image"></i> Upload Image
+                <input type="file" id="image-upload" accept="image/*">
             </label>
-            <input type="file" id="imageUpload" accept="image/*">
-            </div>
-
-
             <div class="editable" contenteditable="true">
                 Type here...
             </div>
-
-		</div>
-	</div>
-
-    <div class="button-container">
-        <button class="square-button"><i class="fa-solid fa-magnifying-glass"></i></button>
-        <a href ="/lessons/quiz/" class="square-button"><i class="fa-solid fa-expand"></i><a>
-        <button class="square-button"><i class="fa-solid fa-floppy-disk"></i></button>
-    </div>
+        </article>
+	</main>
 
 	<script>
 // Select all lessons and the content panel
-const lessons = document.querySelectorAll('#lesson-list li a');
+const lessons = document.querySelectorAll('#lesson-list li');
 const lessonContent = document.getElementById('lesson-content');
 
 // Add click event to each lesson

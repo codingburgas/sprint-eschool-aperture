@@ -1,12 +1,10 @@
-
-function getLessonNames()
-{
-
+function getLessonNames() {
     fetch("/lessons/names/", {
 		method: "GET"
 	})
-    .then((lessonNames) => {
-         console.log(lessonNames);
-     }) ;   
+    .then(lessonNames => {
+        console.log(lessonNames);
+    });
 }
+
 getLessonNames();
