@@ -2,6 +2,7 @@
 
 #include <string>
 #include <vector>
+#include <fstream>
 
 #include <crow.h>
 #include <bcryptcpp.h>
@@ -101,6 +102,9 @@ bool Database::createLesson(const string& userId, const string& lessonTitle)
 		         << lessonTitle
 		         << "lessons/" + userId + '-' + lessonTitle + ".txt";
 
+		createLessonTextFile(lessonTitle, userId);
+
+
 		return true;
 	}
 	catch (const sqlite::sqlite_exception& exception)
@@ -142,4 +146,12 @@ crow::json::wvalue Database::getUsersLessons(const string& userId)
 			return crow::json::wvalue();
 		}
 	}
+}
+
+void Database::createLessonTextFile(const string& lessonTitle, const string& userId)
+{
+	string directory = "lessons/";
+	string fileName = userId + '-' + lessonTitle + ".txt";
+	string filePath = directory + fileName;
+	ofstream file(filePath);
 }

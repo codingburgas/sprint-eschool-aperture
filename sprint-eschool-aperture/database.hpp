@@ -22,4 +22,5 @@ public:
 private:
 	sqlite::database database;
 	bool validateEmail(const string& email);
+	void createLessonTextFile(const string& lessonTitle, const string& userId);
 };
