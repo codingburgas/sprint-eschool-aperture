@@ -1,4 +1,5 @@
 const imageUpload = document.getElementById('image-upload');
+const editableContent = document.getElementById('editable');
 
 const reader = new FileReader();
 reader.onload = () => {
@@ -6,7 +7,7 @@ reader.onload = () => {
     img.src = reader.result;
     img.style.maxWidth = "300px"; // Limit image size
     img.style.display = "inline";
-    document.querySelector('.editable').appendChild(img);
+    editableContent.appendChild(img);
 };
 
 imageUpload.addEventListener('change', () => {

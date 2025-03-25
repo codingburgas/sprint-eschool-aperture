@@ -148,10 +148,13 @@ crow::json::wvalue Database::getUsersLessons(const string& userId)
 	}
 }
 
-void Database::createLessonTextFile(const string& lessonTitle, const string& userId)
+void Database::createLessonTextFile(const string& lessonTitle, const string& userId, const string& lessonContent)
 {
 	string directory = "lessons/";
 	string fileName = userId + '-' + lessonTitle + ".txt";
 	string filePath = directory + fileName;
 	ofstream file(filePath);
+
+	file << lessonContent;
 }
+

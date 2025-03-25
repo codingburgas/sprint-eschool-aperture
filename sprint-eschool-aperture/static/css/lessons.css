@@ -142,7 +142,7 @@ input#image-upload
     display: none;
 }
 
-.editable {
+#editable {
     flex: auto;
     padding: 0.8em;
     font-size: 150%;
@@ -153,13 +153,13 @@ input#image-upload
     overflow: auto;
 }
 
-.editable:hover {
+#editable:hover {
     cursor: pointer;
     background-color: #494a4b;
     transition: all 0.4s;
 }
 
-.editable:focus {
+#editable:focus {
     cursor: text;
     background-color: #878d91;
     border-color: #2e2b2b;
