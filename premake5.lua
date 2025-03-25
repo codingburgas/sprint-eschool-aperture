@@ -3,6 +3,7 @@ local serverLibraries = {
 	"crow",
 	"sqlite-modern-cpp",
 	"jwt-cpp",
+	"cpr",
 }
 
 -- User-configurable code ends here.

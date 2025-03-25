@@ -156,6 +156,7 @@ void Database::createLessonTextFile(const string& lessonTitle, const string& use
 	ofstream file(filePath);
 
 	file << lessonContent;
+
 	file.close();
 }
 
@@ -167,9 +168,8 @@ string Database::getTextFromTextFile(const string& lessonTitle, const string& us
 	ifstream file(filePath);
 	string line, result = "";
 
-
-	while (getline(file, line)) {
-		
+	while (getline(file, line))
+	{
 		result += line + '\n';
 	}
 
@@ -177,4 +177,3 @@ string Database::getTextFromTextFile(const string& lessonTitle, const string& us
 
 	return result;
 }
-

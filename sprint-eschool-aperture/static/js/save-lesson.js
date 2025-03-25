@@ -3,11 +3,10 @@ const contents = document.getElementById("editable");
 const titleLesson = document.getElementById("lesson-title");
 
 saveButton.addEventListener("click", () => {
-const lesson = {
-    "lessonTitle": titleLesson.innerText,
-     "lessonContent": contents.innerHTML
-
-};
+	const lesson = {
+    	"lessonTitle": titleLesson.innerText,
+    	"lessonContent": contents.innerHTML
+	};
 
     fetch("/lessons/", {
 		method: "PUT",
