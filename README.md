@@ -117,9 +117,9 @@ premake5.exe --help
 
 # 📄 Documentation & Presentation
 
-- ![Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/padimitrov23_codingburgas_bg/EezEge5xzFFOsR8v_-CsmMEBQvEdwOcjXpOU_gzhuxxfyg?e=d3XCtC) – Documentation
+- ![Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/padimitrov23_codingburgas_bg/EZ-t3vHnyWhJvvymIX8WPnUBZxC-s8E6xcpr8AxWv_8fnw?e=fcPmdg) – Documentation
 
-- ![Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/padimitrov23_codingburgas_bg/EYr-go_OIipNg_3qr4wwCeQBHmigoIb1VCLqKKsiLMnRZg?e=KHYJpc) – Presentation
+- ![Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/padimitrov23_codingburgas_bg/EdTOcpJCG3ZLvnJQKuuefqUBN3n0yfSn0YIdjd-sSJzlEA?e=fqto3w) – Presentation
 
 .
 
