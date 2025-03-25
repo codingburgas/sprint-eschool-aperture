@@ -119,7 +119,7 @@ premake5.exe --help
 
 - ![Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/padimitrov23_codingburgas_bg/EezEge5xzFFOsR8v_-CsmMEBQvEdwOcjXpOU_gzhuxxfyg?e=d3XCtC) – Documentation
 
-- ![Presentation]() – Presentation
+- ![Presentation](https://codingburgas-my.sharepoint.com/:p:/g/personal/padimitrov23_codingburgas_bg/EYr-go_OIipNg_3qr4wwCeQBHmigoIb1VCLqKKsiLMnRZg?e=KHYJpc) – Presentation
 
 .
 
