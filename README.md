@@ -97,11 +97,8 @@ premake5.exe --help
 
 
 #### For Visual Studio, open the newly generated sprint-eschool-aperture.sln file and run it with F5.
+🌐 Finally, you can view the website at localhost.
 
-
-- 🌐 Finally, you can view the website at localhost.
-
-##### .
 # 🚀 Usage
 - 📖 Open the application and start creating a new note.
 
@@ -113,15 +110,11 @@ premake5.exe --help
 
 - 📚 Save and categorize your notes for easy access later.
 
-. 
-
 # 📄 Documentation & Presentation
 
-- ![Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/padimitrov23_codingburgas_bg/EZ-t3vHnyWhJvvymIX8WPnUBZxC-s8E6xcpr8AxWv_8fnw?e=f5MvwS) – Documentation
+- [Documentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/padimitrov23_codingburgas_bg/EZ-t3vHnyWhJvvymIX8WPnUBZxC-s8E6xcpr8AxWv_8fnw?e=f5MvwS) – Documentation
 
-- ![Presentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/padimitrov23_codingburgas_bg/EZ-t3vHnyWhJvvymIX8WPnUBZxC-s8E6xcpr8AxWv_8fnw?e=W6dDrh) – Presentation
-
-.
+- [Presentation](https://codingburgas-my.sharepoint.com/:w:/g/personal/padimitrov23_codingburgas_bg/EZ-t3vHnyWhJvvymIX8WPnUBZxC-s8E6xcpr8AxWv_8fnw?e=W6dDrh) – Presentation
 
 # 📧 Contact
 ### For any inquiries or feedback, feel free to reach out to us at:
