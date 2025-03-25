@@ -1,5 +1,4 @@
 const addLessonsButton = document.getElementById("add");
-const lessonList = document.getElementById("lesson-list");
 
 addLessonsButton.addEventListener("click", () => {
 	const fileName = prompt("Name your file:");
@@ -9,5 +8,6 @@ addLessonsButton.addEventListener("click", () => {
 			"Content-Type": "application/x-www-form-urlencoded"
 		},
 		body: `title=${encodeURIComponent(fileName)}`
-	});
+	})
+	.then(loadLessons());
 });
