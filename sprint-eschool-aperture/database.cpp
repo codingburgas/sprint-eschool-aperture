@@ -156,5 +156,25 @@ void Database::createLessonTextFile(const string& lessonTitle, const string& use
 	ofstream file(filePath);
 
 	file << lessonContent;
+	file.close();
+}
+
+string Database::getTextFromTextFile(const string& lessonTitle, const string& userId)
+{
+	string directory = "lessons/";
+	string fileName = userId + '-' + lessonTitle + ".txt";
+	string filePath = directory + fileName;
+	ifstream file(filePath);
+	string line, result = "";
+
+
+	while (getline(file, line)) {
+		
+		result += line + '\n';
+	}
+
+	file.close();
+
+	return result;
 }
 

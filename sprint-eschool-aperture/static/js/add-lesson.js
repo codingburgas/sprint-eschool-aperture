@@ -2,6 +2,8 @@ const addLessonsButton = document.getElementById("add");
 
 addLessonsButton.addEventListener("click", () => {
 	const fileName = prompt("Name your file:");
+	if (fileName != "")
+	{
 	fetch("/lessons/", {
 		method: "POST",
 		headers: {
@@ -10,4 +12,9 @@ addLessonsButton.addEventListener("click", () => {
 		body: `title=${encodeURIComponent(fileName)}`
 	})
 	.then(loadLessons());
+  }
+  else
+  {
+   alert("Please name your file properly {:")
+  }
 });

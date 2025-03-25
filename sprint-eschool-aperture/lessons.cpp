@@ -45,6 +45,16 @@ void setupLessons(App& app, crow::Blueprint& lessonsBlueprint, Database& databas
             //Getting the contents of the lesson from the HTMLpage
 		});
 
+
+	CROW_BP_ROUTE(lessonsBlueprint, "/lesson/<string>").methods("GET"_method)([&app, &database](crow::request request, string lessonTitle)
+		{
+			string token = app.get_context<crow::CookieParser>(request).get_cookie("token");
+			string userId = jwt::decode(token).get_subject();
+
+			return database.getTextFromTextFile(lessonTitle, userId);
+
+		});
+
 	CROW_BP_ROUTE(lessonsBlueprint, "/quiz/").methods("GET"_method)([]()
 	{
 		crow::response response;

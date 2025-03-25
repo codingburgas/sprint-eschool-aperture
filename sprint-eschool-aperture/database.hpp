@@ -19,6 +19,7 @@ public:
 	bool createLesson(const string& userId, const string& lessonTitle);
 	crow::json::wvalue getUsersLessons(const string& userId);
 	void createLessonTextFile(const string& lessonTitle, const string& userId, const string& lessonContent = "");
+	string getTextFromTextFile(const string& lessonTitle, const string& userId);
 
 private:
 	sqlite::database database;
