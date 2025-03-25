@@ -4,7 +4,7 @@
 
 #include <crow.h>
 
-#include "app.hpp"
+#include "app-type.hpp"
 
 using namespace std;
 

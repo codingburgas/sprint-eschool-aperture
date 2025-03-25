@@ -2,7 +2,7 @@
 
 #include <crow.h>
 
-#include "app.hpp"
+#include "app-type.hpp"
 #include "database.hpp"
 
 void authorize(App&, const crow::request&, crow::response&, const string& userId);

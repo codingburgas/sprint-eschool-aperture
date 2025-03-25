@@ -2,6 +2,6 @@
 
 #include <crow.h>
 
-#include "app.hpp"
+#include "app-type.hpp"
 
 void setupMedia(App& app, crow::Blueprint& mediaBlueprint);

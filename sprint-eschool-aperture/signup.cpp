@@ -3,7 +3,7 @@
 #include <crow.h>
 #include <crow/middlewares/cookie_parser.h>
 
-#include "app.hpp"
+#include "app-type.hpp"
 #include "database.hpp"
 
 void setupSignup(App& app, Database& database)

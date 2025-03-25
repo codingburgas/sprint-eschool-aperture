@@ -4,7 +4,7 @@
 #include <crow/middlewares/cookie_parser.h>
 #include <jwt-cpp/jwt.h>
 
-#include "app.hpp"
+#include "app-type.hpp"
 #include "authentication.hpp"
 #include "database.hpp"
 

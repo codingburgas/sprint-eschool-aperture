@@ -1,12 +1,10 @@
 #pragma once
 
 #include <crow.h>
-#include <crow/middlewares/cookie_parser.h>
 
-#include "authentication.hpp"
+#include "app-type.hpp"
 #include "database.hpp"
-
-using App = crow::App<crow::CookieParser, Authentication>;
+#include "quizzes.hpp"
 
 class ApertureNotepad
 {
@@ -23,6 +21,8 @@ private:
 	crow::Blueprint cssBlueprint;
 	crow::Blueprint mediaBlueprint;
 	crow::Blueprint lessonsBlueprint;
+	crow::Blueprint quizBlueprint;
+	QuizCreator quizCreator;
 
 	void setupApp();
 };
