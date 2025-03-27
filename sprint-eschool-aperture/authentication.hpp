@@ -19,7 +19,7 @@ struct Authentication : crow::ILocalMiddleware
 	void before_handle(crow::request&, crow::response& response, context&, AppContext& appContext)
 	{
 		string key = appContext.get<crow::CookieParser>().get_cookie("token");
-
+	
 		try
 		{
 			jwt::verify()
@@ -39,12 +39,3 @@ struct Authentication : crow::ILocalMiddleware
 	void after_handle(crow::request&, crow::response&, context&, AppContext& appContext)
 	{}
 };
-
-// AuthSkip
-/*
-if (request.url == "/login/" || request.url == "/register/")
-			{
-				response.add_header("Location", "/lessons/");
-				response.code = crow::SEE_OTHER;
-				response.end();
-			}*/

@@ -16,6 +16,7 @@ public:
 	bool insertUser(const string& email, const string& password);
 	bool validateUser(const string& email, const string& password);
 	string getUserIdFromEmail(const string& email);
+
 	bool createLesson(const string& userId, const string& lessonTitle);
 	crow::json::wvalue getUsersLessons(const string& userId);
 	void createLessonTextFile(const string& lessonTitle, const string& userId, const string& lessonContent = "");
@@ -23,5 +24,6 @@ public:
 
 private:
 	sqlite::database database;
+
 	bool validateEmail(const string& email);
 };

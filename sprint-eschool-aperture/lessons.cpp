@@ -22,8 +22,7 @@ void setupLessons(App& app, crow::Blueprint& lessonsBlueprint, Database& databas
 		return response;
 	});
 
-
-	CROW_BP_ROUTE(lessonsBlueprint, "/").methods("POST"_method)([&app, &database](crow::request request)
+	CROW_BP_ROUTE(lessonsBlueprint, "/").methods("POST"_method)([&app, &database](const crow::request& request)
 	{
 		string token = app.get_context<crow::CookieParser>(request).get_cookie("token");
 		string userId = jwt::decode(token).get_subject();
@@ -33,36 +32,26 @@ void setupLessons(App& app, crow::Blueprint& lessonsBlueprint, Database& databas
 		return crow::response();
 	});
 
-
-	CROW_BP_ROUTE(lessonsBlueprint, "/").methods("PUT"_method)([&app, &database](crow::request request)
-		{
-			string token = app.get_context<crow::CookieParser>(request).get_cookie("token");
-			string userId = jwt::decode(token).get_subject();
-			crow::json::rvalue lesson = crow::json::load(request.body);
-
-			database.createLessonTextFile(lesson["lessonTitle"].s(), userId, lesson["lessonContent"].s());
-			return crow::response();
-            //Getting the contents of the lesson from the HTMLpage
-		});
-
-
-	CROW_BP_ROUTE(lessonsBlueprint, "/lesson/<string>").methods("GET"_method)([&app, &database](crow::request request, string lessonTitle)
-		{
-			string token = app.get_context<crow::CookieParser>(request).get_cookie("token");
-			string userId = jwt::decode(token).get_subject();
-
-			return database.getTextFromTextFile(lessonTitle, userId);
-
-		});
-
-	CROW_BP_ROUTE(lessonsBlueprint, "/quiz/").methods("GET"_method)([]()
+	CROW_BP_ROUTE(lessonsBlueprint, "/").methods("PUT"_method)([&app, &database](const crow::request& request)
 	{
-		crow::response response;
-		response.set_static_file_info("static/html/quiz.html");
-		return response;
+		string token = app.get_context<crow::CookieParser>(request).get_cookie("token");
+		string userId = jwt::decode(token).get_subject();
+		crow::json::rvalue lesson = crow::json::load(request.body);
+
+		database.createLessonTextFile(lesson["lessonTitle"].s(), userId, lesson["lessonContent"].s());
+		
+		return crow::response();
 	});
 
-	CROW_BP_ROUTE(lessonsBlueprint, "/names/").methods("GET"_method)([&app, &database](crow::request request)
+	CROW_BP_ROUTE(lessonsBlueprint, "/lesson/<string>").methods("GET"_method)([&app, &database](const crow::request& request, const string& lessonTitle)
+	{
+		string token = app.get_context<crow::CookieParser>(request).get_cookie("token");
+		string userId = jwt::decode(token).get_subject();
+
+		return database.getTextFromTextFile(lessonTitle, userId);
+	});
+
+	CROW_BP_ROUTE(lessonsBlueprint, "/names/").methods("GET"_method)([&app, &database](const crow::request& request)
 	{
 		string token = app.get_context<crow::CookieParser>(request).get_cookie("token");
 		string userId = jwt::decode(token).get_subject();

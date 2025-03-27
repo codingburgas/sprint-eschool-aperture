@@ -10,11 +10,8 @@ saveButton.addEventListener("click", () => {
 
     fetch("/lessons/", {
 		method: "PUT",
-		headers: {
-			"Content-Type": "application/json"
-		},
+		headers: {"Content-Type": "application/json"},
 		body: JSON.stringify(lesson)
-
 	})
     .then(alert("The lesson has been saved"));
 });
